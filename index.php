@@ -6,6 +6,10 @@
     <title>Document</title>
 </head>
 <body>
+    <?php
+        $nombre = "manuel";
+    ?>
+
     <nav class="menu">
         <ul>
             <li>inicio</li>
