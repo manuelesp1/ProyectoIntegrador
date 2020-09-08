@@ -1,0 +1,25 @@
+body{
+    margin: 0;
+}
+.banner{
+    height: 30vh;
+    background-image: url("../img/banner-principal.jpg");
+    background-size: cover;
+}
+.menu{
+    height: 30vh;
+}
+.menu ul{
+    margin: 0;
+    padding: 10px;
+}
+.menu li{
+    text-decoration: none;
+    display: inline-block;
+}
+footer{
+    background-color: blue;
+}
+footer p{
+    display: inline-block;
+}
