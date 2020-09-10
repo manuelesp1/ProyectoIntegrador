@@ -2,24 +2,79 @@ body{
     margin: 0;
 }
 .banner{
-    height: 30vh;
-    background-image: url("../img/banner-principal.jpg");
+    height: 60vh;
+    background-image: url("../img/provisional.jpg");
     background-size: cover;
 }
 .menu{
-    height: 30vh;
+    background-color: #E96911;
+    color: white;
+    padding: 10px 0;
 }
 .menu ul{
     margin: 0;
-    padding: 10px;
+    display: flex;
+    justify-content: space-around;
 }
 .menu li{
     text-decoration: none;
-    display: inline-block;
+    display: inline-block;   
 }
+.menu a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+.menu a:hover{
+    color: black;
+    background-color: white;
+}
+.info{
+    padding: 5em 5em;
+    line-height: 2em;
+    font-size: 20px;
+    display: flex;
+}
+.info article{
+    width: 75%;
+    padding: 0 50px;
+}
+.info h1{
+    margin: 0 0 50px 0;
+    text-align: center;
+}
+.info p{
+    margin: 0;
+}
+.info img{
+    max-width: 400px;
+    border-radius: 100px;
+}
+.talleres{
+    background-color: #286a6f;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+}
+.talleres center{
+    color:white;
+}
+.iconos{
+    height: 90px;
+}
+
 footer{
-    background-color: blue;
+    background-color: #286a6f;
+    padding: 2em;
+    display: flex;
+    justify-content: space-around;
 }
-footer p{
-    display: inline-block;
+footer div{
+    width: 33%;
+    padding: 1em;
+    color: white;
+    text-align: center;
+}
+footer img{
+    max-width: 30px;
 }
