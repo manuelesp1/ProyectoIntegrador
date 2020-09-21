@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <header class="banner">
+        <nav class="menu">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#">Contactos</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+            
+        </nav>
+    </header>
+
+    <section class="ventana">
+		<form class="formulario" method="post" action="procesalogin.php">
+			<legend class="formulario-titulo">Login</legend>
+			<p class="usuario">
+				<label for="usuario">Usuario: </label>
+				<input type="text" name="usuario" placeholder="ingrese su usuario" class="input-texto" autofocus="">
+			</p>
+			<p class="contraseña">
+				<label for="Contraseña">Contraseña: </label>
+				<input type="password" name="contraseña" placeholder="ingrese su contraseña" class="input-texto">
+			</p>
+			<p class="boton_submit">
+				<input type="submit" name="submit" class="input-submit" >
+			</p>
+			<p class="registro"> <a href="registro.html">Registrate aqui</a></p>
+		</form>
+    </section>
+    <footer>
+        
+    </footer>
+</body>
+</html>

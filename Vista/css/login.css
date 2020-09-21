@@ -1,0 +1,128 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+body{
+	height: 100vh;
+	background-image: url(../img/estudiantes_banner.jpg);
+	background-size: cover;
+}
+
+/*-----------menu-----------*/
+.menu {
+    color: white;
+    padding: 10px 0;
+}
+
+.menu ul {
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu li {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.menu a:hover {
+    color: black;
+    background-color: white;
+}
+
+/*------ventana-login------*/
+.ventana{
+	width: 400px;
+	margin: auto;
+	position: relative;
+	margin-top: 7em;
+	margin-bottom: 6.9em;
+	font-family: bellota;
+}
+.formulario{	
+	padding: 1em;
+	border-radius: 20px;
+	border: 4px solid rgb(0,0,0,0.3);
+	z-index: 5;
+	position: relative;
+}
+.formulario::before{
+	content: "";
+	opacity: .8;
+	z-index: -1;
+	background-color: #A5601B;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: 16px;
+}
+.formulario-titulo{
+	text-align: center;
+	font-size: 1.5em;
+	color: white;
+}
+
+label{
+	font-size: 20px;
+	color: white;
+}
+.usuario, .contraseña{
+	margin: 30px 0;
+	height: 20px;
+}
+.input-texto{
+	float: right;
+	height: 100%;
+}
+.boton_submit{
+	width: 100%;
+	text-align: center;
+}
+.input-submit{
+	text-align: center;
+	margin-top: 1em;
+	height: 40px;
+	width: 30%;
+	border-radius: 10px;
+	background-color: #E1962F;
+	color: white;
+}
+.registro a{
+	color: white;
+	text-decoration: none;
+}
+
+/*-----------footer-----------*/
+footer {
+    background-color: #e4a827;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+footer div {
+    width: 33%;
+    color: white;
+    text-align: center;
+}
+
+.logo div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.logo img {
+    max-width: 30px;
+
+    right: 10px;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <header class="banner">
+        <nav class="menu">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#">Contactos</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+            
+        </nav>
+    </header>
+
+    <section class="ventana">
+		<form class="formulario" method="post" action="procesaregistro.php">
+			<legend class="formulario-titulo">Registro</legend>
+			
+			<p class="usuario">
+				<label for="nomb">Nombre: </label>
+				<input type="text" name="nomb" minlength="3" maxlength="15" placeholder="ingrese su nombre" class="input-texto" pattern="[a-zA-Z]{3,15}" required >
+			</p>
+			<p class="apellido">
+				<label for="ape">Apellido: </label>
+				<input type="text" name="ape" minlength="3" maxlength="15" placeholder="ingrese su apellido" class="input-texto" pattern="[a-zA-Z]{3,15}" required >
+			</p>
+			<p class="contraseña">
+				<label for="Contraseña">Contraseña: </label>
+				<input type="password" name="contraseña" minlength="5" maxlength="15" placeholder="ingrese su contraseña" class="input-texto" required>
+				<input type="hidden" name="tipo" value="cliente">
+			</p>
+
+		
+			<p class="boton_submit">
+				<input type="submit" name="submit" class="input-submit" >
+			</p>
+			
+		</form>
+	</section>
+</body>
+</html>
