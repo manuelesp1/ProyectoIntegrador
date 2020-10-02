@@ -8,12 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="vista/css/principal.css">
-<<<<<<< HEAD
     <title>Colegio Letona</title>
-=======
-    <title>ahora si creo actualizar repositorio - luis</title>
-    <title>ahora si creo actualizar repositorio..............</title>
->>>>>>> 32c24d6a5d75f384d3b5b6b2859f6c640847b5d8
 </head>
 <body>
     <header class="banner">
