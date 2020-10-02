@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
+	<h1>prueba de actualizacion</h1>
     <header class="banner">
         <nav class="menu">
             <ul>
@@ -14,27 +15,34 @@
                 <li><a href="#">Nosotros</a></li>
                 <li><a href="#">Contactos</a></li>
                 <li><a href="login.html">Login</a></li>
-            </ul>
-            
+            </ul>  
         </nav>
     </header>
 
     <section class="ventana">
-		<form class="formulario" method="post" action="procesaregistro.php">
+		<form class="formulario" method="post" action="../Controlador/procesa-registro.php">
 			<legend class="formulario-titulo">Registro</legend>
 			
 			<p class="usuario">
-				<label for="nomb">Nombre: </label>
-				<input type="text" name="nomb" minlength="3" maxlength="15" placeholder="ingrese su nombre" class="input-texto" pattern="[a-zA-Z]{3,15}" required >
+				<label for="nombre">Nombre: </label>
+				<input type="text" name="nombre" placeholder="ingrese su nombre" class="input-texto">
 			</p>
 			<p class="apellido">
-				<label for="ape">Apellido: </label>
-				<input type="text" name="ape" minlength="3" maxlength="15" placeholder="ingrese su apellido" class="input-texto" pattern="[a-zA-Z]{3,15}" required >
+				<label for="apepat">Apellido paterno: </label>
+				<input type="text" name="apepat" placeholder="ingrese su apellido" class="input-texto">
 			</p>
+			<p class="apellido">
+				<label for="apemat">Apellido materno: </label>
+				<input type="text" name="apemat" placeholder="ingrese su apellido" class="input-texto">
+			</p>
+			<p>
+				<label for="correo">Correo: </label>
+				<input type="email" name="correo" class="input-texto">
+			</p>
+
 			<p class="contraseña">
 				<label for="Contraseña">Contraseña: </label>
-				<input type="password" name="contraseña" minlength="5" maxlength="15" placeholder="ingrese su contraseña" class="input-texto" required>
-				<input type="hidden" name="tipo" value="cliente">
+				<input type="password" name="contraseña" placeholder="ingrese su contraseña" class="input-texto">
 			</p>
 
 		

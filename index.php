@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +17,19 @@
                 <li><a href="#">Inicio</a></li>
                 <li><a href="#">Nosotros</a></li>
                 <li><a href="#">Contactos</a></li>
-                <li><a href="vista/login.html">Login</a></li>
+                <!-- <li><a href="vista/login.html">Login</a></li> -->
+                <?php 
+					if(isset($_SESSION['nombre'])){
+				?>
+					<li><a href="Controlador/logout.php"><?php echo $_SESSION['nombre']; ?></a></li>
+				<?php				
+					}
+					else{
+				 ?>
+				 	<li><a href="Vista/login.html">Login</a></li>
+				 <?php 
+				 	}
+				  ?>
             </ul>
             
         </nav>

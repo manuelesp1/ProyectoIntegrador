@@ -1,0 +1,60 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+/*-----------menu-----------*/
+.menu{
+    background-color: greenyellow;
+    padding: 1em;
+}
+.menu ul{
+    display: flex;
+    justify-content: space-evenly;
+}
+.menu li{
+    list-style: none;
+}
+
+/* ---historia mision vision--- */
+
+.imagen{
+    width: 50%;
+}
+.imagen img{
+    max-width: 100%;
+}
+.texto{
+    width: 50%;
+}
+.texto h4{
+    font-size: 1.5em;
+    padding: 15px 0;
+    text-align: center;
+}
+.texto p{
+    padding: 5px 20px;
+}
+
+/* --------historia-------- */
+.izq{
+    display: flex;
+    width: 80%;
+    margin: 2em auto;
+    background-color: blue;
+}
+
+/* ------vision-misionc------ */
+.der{
+    display: flex;
+    width: 80%;
+    margin: 2em auto;
+    background-color: orange;
+}
+
+/* ----------footer---------- */
+footer{
+    background-color: red;
+    text-align: center;
+    padding: 1em 0;
+}

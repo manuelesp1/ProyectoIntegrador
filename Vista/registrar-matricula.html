@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <header class="banner">
+        <nav class="menu">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#">Contactos</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+            
+        </nav>
+    </header>
+
+    <section class="ventana">
+		<form class="formulario" method="post" action="../Controlador/procesa-registroMatricula.php" enctype="multipart/form-data">
+			<legend class="formulario-titulo">Registro</legend>
+            
+            
+            <p>
+				<label for="dni">DNI del padre</label>
+				<input type="text" name="dni_padre" class="input-texto">
+            </p>
+			<p class="usuario">
+				<label for="nomb">Nombre del hijo: </label>
+				<input type="text" name="nombre_hijo" placeholder="ingrese su nombre" class="input-texto">
+			</p>
+			<p class="apellido">
+				<label for="apepat">Apellido paterno del hijo: </label>
+				<input type="text" name="appat_hijo" placeholder="ingrese su apellido" class="input-texto">
+			</p>
+			<p class="apellido">
+				<label for="apemat">Apellido materno del hijo: </label>
+				<input type="text" name="apmat_hijo" placeholder="ingrese su apellido" class="input-texto">
+			</p>
+			<p>
+				<label for="dni">DNI del hijo</label>
+				<input type="text" name="dni_hijo" class="input-texto">
+			<p>
+                <label for="dni">DNI del padre (Parte delantera)</label>
+                <input type="file" class="input-texto" name="dni_padre_img_del">
+            </p>
+            <p>
+                <label for="dni">DNI del padre (Parte trasera)</label>
+                <input type="file" class="input-texto" name="dni_padre_img_tra">
+            </p>
+            <p>
+                <label for="dni">DNI del hijo (Parte delantera)</label>
+                <input type="file" class="input-texto" name="dni_hijo_img_del">
+            </p>
+            <p>
+                <label for="dni">DNI del hijo (Parte trasera)</label>
+                <input type="file" class="input-texto" name="dni_hijo_img_tra">
+            </p>
+            <p>
+                <label for="dni">Certificado de estudios</label>
+                <input type="file" class="input-texto" name="certificado">
+            </p>
+            <p>
+                <label for="dni">Acta directorial</label>
+                <input type="file" class="input-texto" name="acta_directorial">
+            </p>
+            <p>
+                <label for="dni">Comprobante de pago</label>
+                <input type="file" class="input-texto" name="comprobante">
+            </p>
+		
+			<p class="boton_submit">
+				<input type="submit" name="submit" class="input-submit" >
+			</p>
+			
+		</form>
+	</section>
+</body>
+</html>
