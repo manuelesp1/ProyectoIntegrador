@@ -12,6 +12,7 @@
 </head>
 <body>
     <header class="banner">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum deserunt cumque maxime ad dolorem ea modi enim impedit corrupti, consequuntur molestiae assumenda nulla nihil magnam temporibus. Culpa consectetur consequuntur soluta.
         <nav class="menu">
             <ul>
                 <li><a href="#">Inicio</a></li>
