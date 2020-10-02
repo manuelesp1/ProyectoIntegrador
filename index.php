@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="vista/css/principal.css">
-    <title>Document</title>
+    <title>Colegio Letona</title>
 </head>
 <body>
     <header class="banner">
@@ -40,24 +40,24 @@
             <h1>Matricula 2021</h1>
             <p>Debido a la situación actual que vivimos en todo el mundo y por la creciente tasa de contagios; el centro educativo La Leona se preocupa por la salud de las personas y desarrolló una aplicación web en el que podrá matricular a su hijo en la seguridad de su hogar. </p>
         </article>
-        <img src="img/matricula_online2.jpg" alt="">
+        <img src="Vista/img/matricula_online2.jpg" alt="">
     </section>
     <section class="talleres">
         
         <div>
-            <img src="img/becas.png" alt="" class="iconos">
+            <img src="Vista/img/becas.png" alt="" class="iconos">
             <center>Becas</center>
         </div>
         <div>
-            <img src="img/biblioteca.png" alt="" class="iconos">
+            <img src="Vista/img/biblioteca.png" alt="" class="iconos">
             <center>Biblioteca</center>
         </div>
         <div>
-            <img src="img/online.png" alt="" class="iconos">
+            <img src="Vista/img/online.png" alt="" class="iconos">
             <center>Clases online</center>
         </div>
         <div>
-            <img src="img/recursos.png" alt="" class="iconos">
+            <img src="Vista/img/recursos.png" alt="" class="iconos">
             <center>Recursos</center>
         </div>  
     </section>
@@ -72,10 +72,10 @@
             Encuentranos en: 
             <div>
                 <p class="footer-img">
-                    <a href="#"><img src="img/001-facebook.png" alt=""></a>
+                    <a href="#"><img src="Vista/img/001-facebook.png" alt=""></a>
                 </p>
                 <p class="footer-img">
-                    <a href="#"><img src="img/003-whatsapp.png" alt=""></a>
+                    <a href="#"><img src="Vista/img/003-whatsapp.png" alt=""></a>
                 </p>
             </div>
         </div>
