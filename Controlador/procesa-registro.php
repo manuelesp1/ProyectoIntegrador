@@ -9,7 +9,7 @@ $contraseña = mysqli_real_escape_string($link,$_POST['contraseña']);
 
 mysqli_query($link, "insert into padre (nombres, ap_materno, ap_paterno, correo, contraseña) values ('$nombre', '$apepat', '$apemat', '$correo', '$contraseña')");
 
-header("Location: ../index.html");
+header("Location: ../index.php");
 
 mysqli_close($link);
  ?>
