@@ -8,7 +8,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="vista/css/principal.css">
+<<<<<<< HEAD
     <title>ahora si creo actualizar repositorio - luis</title>
+=======
+    <title>ahora si creo actualizar repositorio..............</title>
+>>>>>>> 464d0ecb427ba572a1b570c78380b9842fcd360e
 </head>
 <body>
     <header class="banner">
