@@ -1,9 +1,10 @@
 <?php
-    session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="Vista/css/bootstrap.css">
     <title>Colegio Letona</title>
 </head>
+
 <body>
     <header class="banner">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum deserunt cumque maxime ad dolorem ea modi enim impedit corrupti, consequuntur molestiae assumenda nulla nihil magnam temporibus. Culpa consectetur consequuntur soluta.
@@ -20,22 +22,23 @@
                 <li><a href="#">Nosotros</a></li>
                 <li><a href="#">Contactos</a></li>
                 <!-- <li><a href="vista/login.html">Login</a></li> -->
-                <?php 
-					if(isset($_SESSION['nombre'])){
-				?>
-					<li><a href="Controlador/logout.php"><?php echo $_SESSION['nombre']; ?></a></li>
-				<?php				
-					}
-					else{
-				 ?>
-				 	<li><a href="Vista/login.html">Login</a></li>
-				 <?php 
-				 	}
-				  ?>
+                <?php
+                if (isset($_SESSION['nombre'])) {
+                ?>
+                    <li><a href="Controlador/logout.php"><?php echo $_SESSION['nombre']; ?></a></li>
+                <?php
+                } else {
+                ?>
+                    <li><a href="Vista/login.html">Login</a></li>
+                <?php
+                }
+                ?>
             </ul>
-            
+
         </nav>
-        <div class="ola" style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-67.43,95.22 C225.45,180.09 312.36,58.70 501.41,134.70 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path></svg></div>
+        <div class="ola" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                <path d="M-67.43,95.22 C225.45,180.09 312.36,58.70 501.41,134.70 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
+            </svg></div>
     </header>
     <section class="info">
         <article class="mensaje">
@@ -45,7 +48,7 @@
         <img src="Vista/img/matricula_online2.jpg" alt="">
     </section>
     <section class="talleres">
-        
+
         <div>
             <img src="Vista/img/becas.png" alt="" class="iconos">
             <center>Becas</center>
@@ -61,37 +64,45 @@
         <div>
             <img src="Vista/img/recursos.png" alt="" class="iconos">
             <center>Recursos</center>
-        </div>  
+        </div>
     </section>
     <section>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident, assumenda laborum delectus eveniet commodi excepturi, porro cumque accusantium quia architecto facere beatae nam aliquid repellendus aliquam ipsum fugiat repudiandae obcaecati?
-        Non soluta ipsa aspernatur hic quidem suscipit nemo tempora, mollitia exercitationem sint, distinctio magni placeat molestias quo ullam. Possimus eaque ducimus provident, unde aut obcaecati itaque saepe rerum repellat natus.
-        Temporibus aperiam obcaecati deleniti veritatis id dolorum. Id modi veritatis molestiae sint accusamus ipsam ipsa voluptate provident cumque? Iste deleniti ad hic quia temporibus obcaecati ipsum molestiae a saepe ullam!
-        Molestiae laboriosam quia dolorem officiis assumenda corrupti voluptas explicabo dicta iure magni corporis voluptatem nulla nostrum mollitia, obcaecati error, excepturi temporibus adipisci exercitationem in voluptate? Aliquam molestias repellat est neque.</p>
+            Non soluta ipsa aspernatur hic quidem suscipit nemo tempora, mollitia exercitationem sint, distinctio magni placeat molestias quo ullam. Possimus eaque ducimus provident, unde aut obcaecati itaque saepe rerum repellat natus.
+            Temporibus aperiam obcaecati deleniti veritatis id dolorum. Id modi veritatis molestiae sint accusamus ipsam ipsa voluptate provident cumque? Iste deleniti ad hic quia temporibus obcaecati ipsum molestiae a saepe ullam!
+            Molestiae laboriosam quia dolorem officiis assumenda corrupti voluptas explicabo dicta iure magni corporis voluptatem nulla nostrum mollitia, obcaecati error, excepturi temporibus adipisci exercitationem in voluptate? Aliquam molestias repellat est neque.</p>
     </section>
     <footer>
-        <div class="logo">
-            Encuentranos en: 
-            <div>
-                <p class="footer-img">
-                    <a href="#"><img src="Vista/img/001-facebook.png" alt=""></a>
-                </p>
-                <p class="footer-img">
-                    <a href="#"><img src="Vista/img/003-whatsapp.png" alt=""></a>
-                </p>
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <div class="logo">
+                        Encuentranos en:
+                        <p class="footer-img">
+                            <a href="#"><img src="Vista/img/001-facebook.png" alt=""></a>
+                        </p>
+                        <p class="footer-img">
+                            <a href="#"><img src="Vista/img/003-whatsapp.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="logo">
+                        Nuestros Locales:<br><br>
+                        - Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus rerum<br>
+                        - Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus rerum<br>
+                        - Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus rerum
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="logo">
+                        Horarios de atencion:<br><br>
+                        Lun - Vie de 9 am a 5 pm<br>
+                        Sab 9am a 1pm
+                    </div>
+                </div>
             </div>
-        </div>
-        <div>
-            Nuestros Locales:<br><br>
-            - Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus rerum<br>
-            - Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus rerum<br>
-            - Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus rerum
-        </div>
-        <div>
-            Horarios de atencion:<br><br>
-            Lun - Vie de 9 am a 5 pm<br>
-            Sab 9am a 1pm
         </div>
     </footer>
 </body>
+
 </html>
