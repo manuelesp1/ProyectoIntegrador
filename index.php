@@ -11,6 +11,8 @@ session_start();
     <link rel="stylesheet" href="Vista/css/principal.css">
     <link rel="stylesheet" href="Vista/css/bootstrap.css">
     <title>Colegio Letona</title>
+    <script type="text/javascript" src="Vista/js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="Vista/js/bootstrap.js"></script>
 </head>
 
 <body>
@@ -75,17 +77,16 @@ session_start();
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-4">
+                <div class='col-md-4'>
                     <div class="logo">
                         Encuentranos en:
-                        <p class="footer-img">
-                            <a href="#"><img src="Vista/img/001-facebook.png" alt=""></a>
-                        </p>
-                        <p class="footer-img">
-                            <a href="#"><img src="Vista/img/003-whatsapp.png" alt=""></a>
+                            <p>
+                            <a href="#"><img src="Vista/img/001-facebook.png" alt="" width="34" height="34"></a>                        
+                            <a href="#"><img src="Vista/img/003-whatsapp.png" alt="" width="34" height="34"></a>
+                            </p>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-md-4">
                     <div class="logo">
                         Nuestros Locales:<br><br>
                         - Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus rerum<br>
@@ -93,7 +94,7 @@ session_start();
                         - Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus rerum
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-md-4">
                     <div class="logo">
                         Horarios de atencion:<br><br>
                         Lun - Vie de 9 am a 5 pm<br>
