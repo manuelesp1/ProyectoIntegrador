@@ -21,7 +21,7 @@ session_start();
         <nav class="menu">
             <ul>
                 <li><a href="#">Inicio</a></li>
-                <li><a href="#">Nosotros</a></li>
+                <li><a href="Vista/nosotros.php">Nosotros</a></li>
                 <li><a href="#">Contactos</a></li>
                 <!-- <li><a href="vista/login.html">Login</a></li> -->
                 <?php
@@ -49,6 +49,86 @@ session_start();
         </article>
         <img src="Vista/img/matricula_online2.jpg" alt="">
     </section>
+    <!-- Inicio de carrusel -->
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="5"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="6"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="7"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="Vista/img/est.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>First slide label</h5>
+                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="Vista/img/est1.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Second slide label</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="Vista/img/est2.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Third slide label</h5>
+                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="Vista/img/est3.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Four slide label</h5>
+                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="Vista/img/est4.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Five slide label</h5>
+                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="Vista/img/est5.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Six slide label</h5>
+                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="Vista/img/est6.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Seven slide label</h5>
+                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="Vista/img/est8.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>End slide label</h5>
+                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <!-- Inicio de carrusel -->
     <section class="talleres">
 
         <div>
@@ -74,36 +154,8 @@ session_start();
             Temporibus aperiam obcaecati deleniti veritatis id dolorum. Id modi veritatis molestiae sint accusamus ipsam ipsa voluptate provident cumque? Iste deleniti ad hic quia temporibus obcaecati ipsum molestiae a saepe ullam!
             Molestiae laboriosam quia dolorem officiis assumenda corrupti voluptas explicabo dicta iure magni corporis voluptatem nulla nostrum mollitia, obcaecati error, excepturi temporibus adipisci exercitationem in voluptate? Aliquam molestias repellat est neque.</p>
     </section>
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class='col-md-4'>
-                    <div class="logo">
-                        Encuentranos en:
-                            <p>
-                            <a href="#"><img src="Vista/img/001-facebook.png" alt="" width="34" height="34"></a>                        
-                            <a href="#"><img src="Vista/img/003-whatsapp.png" alt="" width="34" height="34"></a>
-                            </p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="logo">
-                        Nuestros Locales:<br><br>
-                        - Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus rerum<br>
-                        - Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus rerum<br>
-                        - Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus rerum
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="logo">
-                        Horarios de atencion:<br><br>
-                        Lun - Vie de 9 am a 5 pm<br>
-                        Sab 9am a 1pm
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-</body>
+    <?php
+    include("Vista/pieH.html");
+    ?>
 
 </html>

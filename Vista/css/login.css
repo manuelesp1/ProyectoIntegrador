@@ -49,15 +49,15 @@ body{
 .formulario{	
 	padding: 1em;
 	border-radius: 20px;
-	border: 4px solid rgb(0,0,0,0.3);
-	z-index: 5;
+	border: 4px solid  #8c8c86 ;
+	z-index: 15;
 	position: relative;
 }
 .formulario::before{
 	content: "";
-	opacity: .8;
-	z-index: -1;
-	background-color: #A5601B;
+	opacity: .60;
+	z-index: -70;
+	background-color: #24626b;
 	position: absolute;
 	top: 0;
 	left: 0;

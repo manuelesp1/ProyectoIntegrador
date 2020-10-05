@@ -41,7 +41,7 @@
     display: flex;
     width: 80%;
     margin: 2em auto;
-    background-color: blue;
+    background-color:  #0087ff ;
 }
 
 /* ------vision-misionc------ */
@@ -54,7 +54,7 @@
 
 /* ----------footer---------- */
 footer{
-    background-color: red;
+    background-color:#f9492a;
     text-align: center;
     padding: 1em 0;
 }
