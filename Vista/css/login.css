@@ -2,12 +2,17 @@
 	padding: 0;
 	margin: 0;
 }
-
+.bg-light {
+    background-color: #ffffffd1 !important;
+}
 body{
 	height: 100vh;
 	background-image: url(../img/estudiantes_banner.jpg);
+	background-repeat: no-repeat;
 	background-size: cover;
 }
+
+
 
 /*-----------menu-----------*/
 .menu {
@@ -48,8 +53,8 @@ body{
 }
 .formulario{	
 	padding: 1em;
-	border-radius: 20px;
-	border: 4px solid  #8c8c86 ;
+	border-radius: 25px;
+	border: 1px solid  #18badfd1 ;
 	z-index: 15;
 	position: relative;
 }

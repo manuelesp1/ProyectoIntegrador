@@ -5,6 +5,7 @@
 
 /*-----------menu-----------*/
 .menu{
+    color: aqua;
     background-color: greenyellow;
     padding: 1em;
 }
@@ -15,7 +16,11 @@
 .menu li{
     list-style: none;
 }
-
+li a:hover {
+	/*Color sobre nav */
+	color: #ffffff;
+  background-color:  #3e4345 ;
+}
 /* ---historia mision vision--- */
 
 .imagen{
