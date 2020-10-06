@@ -2,31 +2,39 @@
 	padding: 0;
 	margin: 0;
 }
-
+@font-face{
+    font-family: open-sanz;
+    src: url("../fonts/OpenSans-Light.ttf");
+}
 body{
-	height: 100vh;
-	background-image: url(../img/estudiantes_banner.jpg);
-	background-size: cover;
+    font-family: open-sanz;
+}
+.principal{
+    display: flex;
+}
+.info{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.info img{
+    max-width: 600px;
+}
+.info p{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.info p{
+    padding: 1em 0;
 }
 
 /*-----------menu-----------*/
 .menu {
-    color: white;
     padding: 10px 0;
-    z-index: 1000;
-	width: 100%;
-	position: relative;
-}
-.menu::before{
-	content: "";
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	left: 0;
-	background-color: #e4a827;
-	z-index: -500;
-	opacity: 0.7;
+    background-color: black;
 }
 
 .menu ul {
@@ -37,7 +45,8 @@ body{
 
 .menu li {
     text-decoration: none;
-    display: inline-block;
+	display: inline-block;
+	color: white;
 }
 
 .menu a {
@@ -53,7 +62,7 @@ body{
 
 /*------ventana-login------*/
 .ventana{
-	width: 400px;
+	width: 600px;
 	margin: auto;
 	position: relative;
 	margin-top: 7em;
@@ -94,8 +103,9 @@ label{
 }
 .input-texto{
 	float: right;
-	height: 25px;
-
+    height: 25px;
+    width: 300px;
+    border-radius: 5px;
 }
 .boton_submit{
 	width: 100%;

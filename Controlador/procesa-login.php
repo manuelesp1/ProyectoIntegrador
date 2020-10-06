@@ -12,7 +12,17 @@ $row = mysqli_fetch_array($result);
 
 if(mysqli_num_rows($result) != 0){
 	$_SESSION['nombre'] = $row['nombres'];
-	header("Location: ./../index.php");
+	$_SESSION['tipo'] = $row['tipo'];
+
+	if($_SESSION['tipo'] == 'administracion'){
+		header("Location: ./../Vista/admin-pendiente.php");
+	}
+	else if($_SESSION['tipo'] == 'gerencia'){
+		header("Location: ./../Vista/gerencia-pendiente.php");
+	}
+	else{
+		header("Location: ./../index.php");
+	}
 }
 else{
 	header("Location: ./../index.php");

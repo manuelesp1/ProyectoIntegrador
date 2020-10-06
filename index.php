@@ -3,7 +3,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    
     <header class="banner">
         <nav class="menu">
             <!-- <div class="slider">
@@ -39,13 +40,19 @@
 				 	}
 				  ?>
             </ul>
-
+            
         </nav>
         <div class="ola" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
                 style="height: 100%; width: 100%;">
                 <path d="M-67.43,95.22 C225.45,180.09 312.36,58.70 501.41,134.70 L500.00,150.00 L0.00,150.00 Z"
-                    style="stroke: none; fill: #fff;"></path>
+                    style="stroke: none; fill: #f2f2f2;"></path>
             </svg></div>
+        <a href="Vista/registrar-matricula.php"> 
+            <div class="boton-matricula">
+                <h1>Matricula 2021</h1>
+                <p>Click aqui</p>
+            </div>
+        </a> 
     </header>
     <section>
         <article class="nosotros">

@@ -2,24 +2,13 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/login.css">
     <title>Document</title>
-    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-    <header class="banner">
-        <nav class="menu">
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Contactos</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>  
-        </nav>
-    </header>
-
     <section class="ventana">
-		<form class="formulario" method="post" action="../Controlador/procesa-registro.php">
+		<form class="formulario" method="post" action="../Controlador/procesa-nuevo-personal.php">
 			<legend class="formulario-titulo">Registro</legend>
 			
 			<p>
@@ -44,10 +33,15 @@
 				<input type="password" name="contraseña" placeholder="ingrese su contraseña" class="input-texto">
 			</p>
 
-			<p>
-				<input type="hidden" name="tipo" value="padre">
-			</p>
-
+            <p>
+                <label for="rol">Elija rol: </label>
+                <select name="rol" id="rol">
+                    <option value="">Seleccione</option>
+                    <option value="administracion">administracion</option>
+                    <option value="gerencia">Gerencia</option>
+                </select>
+            </p>
+		
 			<p class="boton_submit">
 				<input type="submit" name="submit" class="input-submit" >
 			</p>
