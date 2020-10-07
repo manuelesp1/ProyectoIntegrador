@@ -16,16 +16,14 @@ body{
     width: 100%;
     height: 60vh;
     position: relative;
-    background: #e4a827;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, hsla(64, 87%, 82%, 0.5), hsla(41, 78%, 52%, 0.5)), url("../img/estudiantes_banner.jpg");  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, hsla(64, 87%, 82%, 0.5), hsla(41, 78%, 52%, 0.5)), url("../img/estudiantes_banner.jpg"); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-image: url("../img/estudiantes_banner.jpg");
     background-size: cover;
 }
 .ola{
     position: absolute;
     width: 100%;
     bottom: 0;
-    color: white;
+    color: #f2f2f2;
 }
 .menu {
     color: white;
@@ -41,9 +39,9 @@ body{
 	bottom: 0;
 	right: 0;
 	left: 0;
-	background-color: black;
+	background-color: #e4a827;
 	z-index: -500;
-	opacity: 0.5;
+	opacity: 0.7;
 }
 .menu ul {
     margin: 0;
@@ -66,6 +64,18 @@ body{
     color: black;
     background-color: white;
 }
+.boton-matricula{
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    color: white;
+    text-align: center;
+    background-color: red;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px black;
+}
+
 
 /*--------panel de informacion--------*/
 
@@ -186,16 +196,22 @@ span{
 
 /*-----------footer-----------*/
 footer {
+    color: white;
     background-color: #e4a827;
     padding: 2em;
     display: flex;
     justify-content: space-around;
+
+footer div {
+    color: white;
+
     text-align: center;
 }
 .div-footer{
     width: 25%;
     margin: 0;
 }
+
 
 .div-footer img {
     max-width: 30px;
@@ -207,3 +223,4 @@ footer {
     justify-content: center;
     margin: 1em 0;
 }
+

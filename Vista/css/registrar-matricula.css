@@ -45,7 +45,11 @@ body{
 
 .menu li {
     text-decoration: none;
+
     display: inline-block;
+
+	color: white;
+
 }
 
 .menu a {

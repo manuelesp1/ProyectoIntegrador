@@ -15,7 +15,14 @@ if(mysqli_num_rows($result) != 0){
 	$_SESSION['tipo'] = $row['tipo'];
 
 	if($_SESSION['tipo'] == 'administracion'){
+
 		header("Location: ./../Vista/admin.php");
+
+		header("Location: ./../Vista/admin-pendiente.php");
+	}
+	else if($_SESSION['tipo'] == 'gerencia'){
+		header("Location: ./../Vista/gerencia-pendiente.php");
+
 	}
 	else{
 		header("Location: ./../index.php");

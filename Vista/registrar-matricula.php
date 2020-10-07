@@ -16,10 +16,17 @@
     <header class="banner">
         <nav class="menu">
             <ul>
+
                 <li><a href="../index.html">Inicio</a></li>
                 <li><a href="#">Nosotros</a></li>
                 <li><a href="#">Contactos</a></li>
                 <li><a href="login.html">Login</a></li>
+
+                <li><a href="../index.php">Inicio</a></li>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#">Contactos</a></li>
+                <li>Bienvenido, <?php echo $_SESSION['nombre']; ?></li>
+
             </ul>
             
         </nav>
@@ -79,6 +86,12 @@
                     <label for="dni">Comprobante de pago</label>
                     <input type="file" class="input-texto" name="comprobante">
                 </p>
+
+
+                <p>
+                    <input type="hidden" name="estado" value="pendiente">
+                </p>
+
             
                 <p class="boton_submit">
                     <input type="submit" name="submit" class="input-submit" >
