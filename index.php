@@ -10,6 +10,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Vista/css/principal.css">
+    <link rel="stylesheet" href="Vista/css/bootstrap.css">
     <!-- <link rel="stylesheet" href="Vista/css/bootstrap.css"> -->
     <title>Colegio Letona</title>
     <script type="text/javascript" src="Vista/js/jquery-3.5.1.min.js"></script>
@@ -43,10 +44,6 @@ session_start();
                 <?php 
 				 	}
 				  ?>
-
-                <li><a href="#">Inicio</a></li>
-                <li><a href="Vista/nosotros.php">Nosotros</a></li>
-                <li><a href="#">Contactos</a></li>
                 <!-- <li><a href="vista/login.html">Login</a></li> -->
                 <?php
                 if (isset($_SESSION['nombre'])) {
