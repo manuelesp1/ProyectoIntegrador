@@ -1,4 +1,24 @@
 <!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <header class="banner">
+        <nav class="menu">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#">Contactos</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>  
+        </nav>
+    </header>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -38,15 +58,15 @@
 		<form class="formulario" method="post" action="../Controlador/procesa-registro.php">
 			<legend class="formulario-titulo">Registro</legend>
 			
-			<p class="usuario">
+			<p>
 				<label for="nombre">Nombre: </label>
 				<input type="text" name="nombre" placeholder="ingrese su nombre" class="input-texto">
 			</p>
-			<p class="apellido">
+			<p>
 				<label for="apepat">Apellido paterno: </label>
 				<input type="text" name="apepat" placeholder="ingrese su apellido" class="input-texto">
 			</p>
-			<p class="apellido">
+			<p>
 				<label for="apemat">Apellido materno: </label>
 				<input type="text" name="apemat" placeholder="ingrese su apellido" class="input-texto">
 			</p>
@@ -55,12 +75,15 @@
 				<input type="email" name="correo" class="input-texto">
 			</p>
 
-			<p class="contraseña">
+			<p>
 				<label for="Contraseña">Contraseña: </label>
 				<input type="password" name="contraseña" placeholder="ingrese su contraseña" class="input-texto">
 			</p>
 
-		
+			<p>
+				<input type="hidden" name="tipo" value="padre">
+			</p>
+
 			<p class="boton_submit">
 				<input type="submit" name="submit" class="input-submit" >
 			</p>
