@@ -1,0 +1,64 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+.principal{
+    display: flex;
+}
+
+/* ---------banner--------- */
+.banner{
+    height: 50px;
+    background-color: #4141c6;
+    color: #FFA500;
+}
+
+/*--------- menu--------- */
+.menu{
+    width: 200px;
+    background-color: #25256f;
+    color: white;
+}
+.menu ul{
+    position: fixed;
+}
+.menu li{
+    height: 50px;
+    list-style: none;
+    border-bottom: solid 1px white;
+    display: flex;
+    align-items: center;
+    padding-left: 1em;
+}
+.menu li:hover{
+    background-color: #FFA500;
+}
+.menu a{
+    color: white;
+    text-decoration: none;
+}
+
+/* --------reportes-------- */
+.reportes{
+    width: 100%;
+}
+table{
+    width: 90%;
+    margin: 2em auto;
+}
+td{
+    width: 10%;
+    text-align: center;
+    padding: 5px 0;
+}
+.imagen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.imagen img{
+    max-width: 90%;
+    margin: 0 auto;
+}
