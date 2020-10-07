@@ -24,9 +24,13 @@ $certificado = addslashes(file_get_contents($certif));
 $comprob = $_FILES['comprobante']['tmp_name'];
 $comprobante = addslashes(file_get_contents($comprob));
 
+
+mysqli_query($link, "insert into matricula (dni_padre, dni_hijo, nombre_hijo, appat_hijo, apmat_hijo, dni_padre_img_del,dni_padre_img_tra, dni_hijo_img_del,dni_hijo_img_tra, certificado, comprobante) values ('$dni_padre', '$nombre_hijo', '$appat_hijo', '$apmat_hijo', '$dni_hijo', '$dni_padre_img_del', '$dni_padre_img_tra', '$dni_hijo_img_del', '$dni_hijo_img_tra', '$certificado', '$comprobante')");
+
 $estado = mysqli_real_escape_string($link,$_POST['estado']);
 
 mysqli_query($link, "insert into matricula (dni_padre, dni_hijo, nombre_hijo, appat_hijo, apmat_hijo, dni_padre_img_del,dni_padre_img_tra, dni_hijo_img_del,dni_hijo_img_tra, certificado, comprobante, estado) values ('$dni_padre', '$nombre_hijo', '$appat_hijo', '$apmat_hijo', '$dni_hijo', '$dni_padre_img_del', '$dni_padre_img_tra', '$dni_hijo_img_del', '$dni_hijo_img_tra', '$certificado', '$comprobante', '$estado')");
+
 
 header("Location: ./../index.php");
 
