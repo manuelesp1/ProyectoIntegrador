@@ -1,43 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/login.css">
-</head>
-<body>
-    <header class="banner">
-        <nav class="menu">
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Contactos</a></li>
-                <li><a href="#">Login</a></li>
-            </ul>
-            
-        </nav>
-    </header>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <title>Inicio de sesión</title>
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+  </head>
+  <body>
+    
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="../index.php">Inicio</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="../Vista/nosotros.html">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../index.html">Contactos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Login</a>
+                  </li>
+              </ul>
+              <span class="navbar-text">
+                Colegio Letona
+              </span>
+            </div>
+          </nav>
+<div class="container-fluido">
     <section class="ventana">
-		<form class="formulario" method="post" action="../Controlador/procesa-login.php">
-			<legend class="formulario-titulo">Login</legend>
-			<p class="usuario">
-				<label for="nombre">Nombre: </label>
-				<input type="text" name="nombre" placeholder="ingrese su nombre" class="input-texto" autofocus="">
-			</p>
-			<p class="contraseña">
-				<label for="Contraseña">Contraseña: </label>
-				<input type="password" name="contraseña" placeholder="ingrese su contraseña" class="input-texto">
-			</p>
-			<p class="boton_submit">
-				<input type="submit" name="submit" class="input-submit" >
-			</p>
-			<p class="registro"> <a href="registro.html">Registrate aqui</a></p>
-		</form>
+      <form
+        class="formulario"
+        method="post"
+        action="../Controlador/procesa-login.php"
+      >
+        <legend class="formulario-titulo"><h1>Inicio de sesión</h1></legend>
+        <div class="form-group">
+          <label for="uname">Nombre de usuario:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="uname"
+            placeholder="Ingrese nombre de usuario"
+            name="nombre"
+            required
+          />
+          <div class="valid-feedback">Valido.</div>
+          <div class="invalid-feedback">Por favor, rellene este campo.</div>
+        </div>
+        <div class="form-group">
+          <label for="pwd">Contraseña:</label>
+          <input
+            type="password"
+            class="form-control"
+            id="pwd"
+            placeholder="Ingrese contraseña"
+            name="pswd"
+            required
+          />
+          <div class="valid-feedback">Valido.</div>
+          <div class="invalid-feedback">Por favor, rellene este campo.</div>
+        </div>
+        <button type="button" class="btn btn-primary">Enviar</button>
+        <p class="registro"><a href="registro.html">Registrate aqui</a></p>
+      </form>
     </section>
-    <footer>
-        
-    </footer>
-</body>
+</div>
+    <footer></footer>
+  </body>
 </html>

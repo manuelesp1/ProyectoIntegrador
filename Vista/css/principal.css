@@ -201,12 +201,17 @@ footer {
     padding: 2em;
     display: flex;
     justify-content: space-around;
+
+footer div {
+    color: white;
+
     text-align: center;
 }
 .div-footer{
     width: 25%;
     margin: 0;
 }
+
 
 .div-footer img {
     max-width: 30px;
@@ -218,3 +223,4 @@ footer {
     justify-content: center;
     margin: 1em 0;
 }
+
