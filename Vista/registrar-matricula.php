@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="css/registrar-matricula.css">
-    <script type="text/javascript" src="js/validar.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <title>Document</title>    
+    <script type="text/javascript" src="js/registraM.js"></script>
 </head>
 <body>
     <header class="banner">
@@ -30,30 +31,30 @@
 
     <section class="principal">
         <div class="ventana">
-            <form class="formulario" method="post" onsubmit="return validar();" action="../Controlador/procesa-registroMatricula.php" enctype="multipart/form-data">
-                <legend class="formulario-titulo">Registro</legend>
-                
+            <form class="formulario" method="post" id="formulario" onsubmit="return validar();" action="../Controlador/procesa-registroMatricula.php" enctype="multipart/form-data">
+                <legend class="formulario-titulo">Registro</legend>                
                 
                 <p>
                     <label for="dni">DNI del padre</label>
-                    <input type="text" name="dni_padre" class="input-texto">
+                    <input type="text" class="form-control" name="dni_padre" id="dni_padre" class="input-texto">
                 </p>
                 <p class="usuario">
                     <label for="nomb">Nombre del hijo: </label>
-                    <input type="text" name="nombre_hijo" placeholder="ingrese su nombre" class="input-texto">
+                    <input type="text" class="form-control" name="nombre_hijo" id="nombre_hijo" placeholder="ingrese su nombre" class="input-texto">
                 </p>
                 <p class="apellido">
                     <label for="apepat">Apellido paterno del hijo: </label>
-                    <input type="text" name="appat_hijo" placeholder="ingrese su apellido" class="input-texto">
+                    <input type="text" class="form-control" name="appat_hijo" id="appat_hijo" placeholder="ingrese su apellido" class="input-texto">
                 </p>
                 <p class="apellido">
                     <label for="apemat">Apellido materno del hijo: </label>
-                    <input type="text" name="apmat_hijo" placeholder="ingrese su apellido" class="input-texto">
+                    <input type="text" class="form-control" name="apmat_hijo" id="apmat_hijo" placeholder="ingrese su apellido" class="input-texto">
                 </p>
                 <p>
                     <label for="dni">DNI del hijo</label>
-                    <input type="text" name="dni_hijo" class="input-texto">
+                    <input type="text" class="form-control" name="dni_hijo" id="dni_hijo" class="input-texto">
                 </p>
+                
                 <p>
                     <label for="dni">DNI del padre (Parte delantera)</label>
                     <input type="file" class="input-texto" name="dni_padre_img_del">
@@ -92,7 +93,7 @@
                 <p class="boton_submit">
                     <input type="submit" name="submit" class="input-submit" >
                 </p>
-                
+                <h6 id="error"></h6>
             </form>
         </div>
         <div class="info">
