@@ -14,17 +14,7 @@
         
   </head>
   <body>
-    <header class="banner">
-      <nav class="menu">
-        <ul>
-          <li><a href="../index.html">Inicio</a></li>
-          <li><a href="#">Nosotros</a></li>
-          <li><a href="#">Contactos</a></li>
-          <li><a href="login.html">Login</a></li>
-        </ul>
-      </nav>
-    </header>
-  
+ 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="../index.php">Inicio</a>
           <button
@@ -47,10 +37,10 @@
                 <a class="nav-link" href="../index.html">Contactos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../index.html">Login</a>
+                <a class="nav-link" href="../Vista/login.html">Login</a>
               </li>
             </ul>
-            <span class="navbar-text"> Colegio Letona </span>
+            <img src="img/escudo-laLetona-n.png" alt="" width="2.5%" height="2.5%"><span class="navbar-text">  Colegio La leona</span>
           </div>
         </nav>
 
@@ -61,17 +51,20 @@
             <p>
               <label for="nombre">Nombre: </label>
               <input
-                type="text"
-                name="nombre"
-                placeholder="ingrese su nombre"
-                id="nombre"
-                class="input-texto" 
-              />
+            type="text"
+            class="form-control"
+            id="nombre"
+            placeholder="Ingrese nombre de usuario"
+            name="nombre"
+            required
+          />
             </p>
             <p>
               <label for="apepat">Apellido paterno: </label>
+              
               <input
                 type="text"
+                class="form-control"
                 name="apepat"
                 placeholder="ingrese su apellido"
                 id="apepat"
@@ -82,6 +75,7 @@
               <label for="apemat">Apellido materno: </label>
               <input
                 type="text"
+                class="form-control"
                 name="apemat"
                 placeholder="ingrese su apellido"
                 id="apemat"
@@ -92,8 +86,10 @@
               <label for="correo">Correo: </label>
               <input
                 type="email"
+                class="form-control"
                 name="correo"
                 id="correo"
+                placeholder="Ingrese su correo"
                 class="input-texto" 
               />
             </p>
@@ -102,28 +98,26 @@
               <label for="Contraseña">Contraseña: </label>
               <input
                 type="password"
+                class="form-control"
                 name="contraseña"
                 id="contraseña"
                 placeholder="ingrese su contraseña"
                 class="input-texto" 
               />
             </p>
-
-            <p>
-              <input type="hidden" name="tipo" value="padre" />
-            </p>
-
             <p class="boton_submit">
               <input
                 type="submit"
+                class="btn btn-success"
                 name="submit"
                 id="submit"
                 
                 class="input-submit" 
               />
             </p>
+            <h6 id="error"></h6>
           </form>
-          <div id="error"></div>
+          
         </section>
       </body>
     </html>

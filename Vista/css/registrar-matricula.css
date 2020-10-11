@@ -6,6 +6,9 @@
     font-family: open-sanz;
     src: url("../fonts/OpenSans-Light.ttf");
 }
+.bg-light {
+    background-color: #ffffffd1 !important;
+}
 body{
     font-family: open-sanz;
 }

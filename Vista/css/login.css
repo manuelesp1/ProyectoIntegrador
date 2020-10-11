@@ -2,14 +2,18 @@
 	padding: 0;
 	margin: 0;
 }
-.bg-light {
-    background-color: #ffffffd1 !important;
+.bg-light{
+    background-color: #f8f9fab8 !important;
 }
 body{
-	height: 100vh;
+	margin: 0;
+	min-height: 100vh;
 	background-image: url(../img/estudiantes_banner.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
+	background-position: center;
+    background-attachment: fixed;
+
 }
 
 
@@ -58,10 +62,10 @@ body{
 
 /*------ventana-login------*/
 .ventana{
-	width: 400px;
+	width: 430px;
 	margin: auto;
 	position: relative;
-	margin-top: 7em;
+	margin-top: 2em;
 	margin-bottom: 6.9em;
 	font-family: bellota;
 }
@@ -91,7 +95,7 @@ body{
 	padding: 0 0 1em 0;
 }
 .formulario p{
-	padding: 15px 0;
+	padding: 10px 0;
 }
 label{
 	font-size: 20px;
