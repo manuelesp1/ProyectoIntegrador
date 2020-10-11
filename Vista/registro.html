@@ -1,94 +1,131 @@
 <!DOCTYPE html>
 
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/login.css">
-</head>
-<body>
-    <header class="banner">
-        <nav class="menu">
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Contactos</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>  
-        </nav>
-    </header>
-
-<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="css/login.css" />
-    <title>Inicio de sesión</title>
-    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <title>Document</title>         
+        <link rel="stylesheet" href="css/login.css" />
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <title>Inicio de sesión</title>
+        <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="js/vali.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+        
   </head>
   <body>
-    
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="../index.php">Inicio</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="../Vista/nosotros.html">Nosotros</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../index.html">Contactos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../index.html">Login</a>
-                  </li>
-              </ul>
-              <span class="navbar-text">
-                Colegio Letona
-              </span>
-            </div>
-          </nav>
+    <header class="banner">
+      <nav class="menu">
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="#">Nosotros</a></li>
+          <li><a href="#">Contactos</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+  
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="../index.php">Inicio</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarText"
+            aria-controls="navbarText"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../Vista/nosotros.html">Nosotros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Contactos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Login</a>
+              </li>
+            </ul>
+            <span class="navbar-text"> Colegio Letona </span>
+          </div>
+        </nav>
 
-    <section class="ventana">
-		<form class="formulario" method="post" action="../Controlador/procesa-registro.php">
-			<legend class="formulario-titulo">Registro</legend>
-			
-			<p>
-				<label for="nombre">Nombre: </label>
-				<input type="text" name="nombre" placeholder="ingrese su nombre" class="input-texto">
-			</p>
-			<p>
-				<label for="apepat">Apellido paterno: </label>
-				<input type="text" name="apepat" placeholder="ingrese su apellido" class="input-texto">
-			</p>
-			<p>
-				<label for="apemat">Apellido materno: </label>
-				<input type="text" name="apemat" placeholder="ingrese su apellido" class="input-texto">
-			</p>
-			<p>
-				<label for="correo">Correo: </label>
-				<input type="email" name="correo" class="input-texto">
-			</p>
+        <section class="ventana">
+          <form  class="formulario" method="post" id="formulario" onsubmit="return validar();" action="../Controlador/procesa-registro.php">
+            <legend class="formulario-titulo">Registro</legend>
 
-			<p>
-				<label for="Contraseña">Contraseña: </label>
-				<input type="password" name="contraseña" placeholder="ingrese su contraseña" class="input-texto">
-			</p>
+            <p>
+              <label for="nombre">Nombre: </label>
+              <input
+                type="text"
+                name="nombre"
+                placeholder="ingrese su nombre"
+                id="nombre"
+                class="input-texto" 
+              />
+            </p>
+            <p>
+              <label for="apepat">Apellido paterno: </label>
+              <input
+                type="text"
+                name="apepat"
+                placeholder="ingrese su apellido"
+                id="apepat"
+                class="input-texto" 
+              />
+            </p>
+            <p>
+              <label for="apemat">Apellido materno: </label>
+              <input
+                type="text"
+                name="apemat"
+                placeholder="ingrese su apellido"
+                id="apemat"
+                class="input-texto" 
+              />
+            </p>
+            <p>
+              <label for="correo">Correo: </label>
+              <input
+                type="email"
+                name="correo"
+                id="correo"
+                class="input-texto" 
+              />
+            </p>
 
-			<p>
-				<input type="hidden" name="tipo" value="padre">
-			</p>
+            <p>
+              <label for="Contraseña">Contraseña: </label>
+              <input
+                type="password"
+                name="contraseña"
+                id="contraseña"
+                placeholder="ingrese su contraseña"
+                class="input-texto" 
+              />
+            </p>
 
-			<p class="boton_submit">
-				<input type="submit" name="submit" class="input-submit" >
-			</p>
-			
-		</form>
-	</section>
-</body>
+            <p>
+              <input type="hidden" name="tipo" value="padre" />
+            </p>
+
+            <p class="boton_submit">
+              <input
+                type="submit"
+                name="submit"
+                id="submit"
+                
+                class="input-submit" 
+              />
+            </p>
+          </form>
+          <div id="error"></div>
+        </section>
+      </body>
+    </html>
+  </body>
 </html>

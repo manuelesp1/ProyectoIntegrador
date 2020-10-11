@@ -239,37 +239,6 @@ session_start();
             voluptatem nulla nostrum mollitia, obcaecati error, excepturi temporibus adipisci exercitationem in
             voluptate? Aliquam molestias repellat est neque.</p>
     </section>
-    <footer>
-        <div class="div-footer">
-            Encuentranos en:
-            <div class="logo">
-                <p class="footer-img">
-                    <a href="#"><img src="Vista/img/001-facebook.png" alt=""></a>
-                </p>
-                <p class="footer-img">
-                    <a href="#"><img src="Vista/img/003-whatsapp.png" alt=""></a>
-                </p>
-            </div>
-        </div>
-        <div class="div-footer">
-            Nuestros Locales:<br><br>
-            - Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus rerum<br>
-            - Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus rerum<br>
-            - Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus rerum
-        </div>
-        <div class="div-footer">
-            Horarios de atencion:<br><br>
-            Lun - Vie de 9 am a 5 pm<br>
-            Sab 9am a 1pm
-        </div>
-    </footer>
-</body>
-
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident, assumenda laborum delectus eveniet commodi excepturi, porro cumque accusantium quia architecto facere beatae nam aliquid repellendus aliquam ipsum fugiat repudiandae obcaecati?
-            Non soluta ipsa aspernatur hic quidem suscipit nemo tempora, mollitia exercitationem sint, distinctio magni placeat molestias quo ullam. Possimus eaque ducimus provident, unde aut obcaecati itaque saepe rerum repellat natus.
-            Temporibus aperiam obcaecati deleniti veritatis id dolorum. Id modi veritatis molestiae sint accusamus ipsam ipsa voluptate provident cumque? Iste deleniti ad hic quia temporibus obcaecati ipsum molestiae a saepe ullam!
-            Molestiae laboriosam quia dolorem officiis assumenda corrupti voluptas explicabo dicta iure magni corporis voluptatem nulla nostrum mollitia, obcaecati error, excepturi temporibus adipisci exercitationem in voluptate? Aliquam molestias repellat est neque.</p>
-    </section>
     <?php
     include("Vista/pieH.html");
     ?>

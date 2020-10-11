@@ -1,9 +1,4 @@
-<?php
-    session_start();
-    if(!isset($_SESSION['nombre'])){
-        header("Location: ./login.html");
-    }
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/registrar-matricula.css">
+    <script type="text/javascript" src="js/validar.js"></script>
 </head>
 <body>
     <header class="banner">
@@ -34,7 +30,7 @@
 
     <section class="principal">
         <div class="ventana">
-            <form class="formulario" method="post" action="../Controlador/procesa-registroMatricula.php" enctype="multipart/form-data">
+            <form class="formulario" method="post" onsubmit="return validar();" action="../Controlador/procesa-registroMatricula.php" enctype="multipart/form-data">
                 <legend class="formulario-titulo">Registro</legend>
                 
                 
