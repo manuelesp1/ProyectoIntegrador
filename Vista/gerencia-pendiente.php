@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require_once("../Controlador/matricula-control.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -42,20 +43,25 @@
                 <?php
         
         
-        include("../Controlador/conexion.php");
-        $consulta = mysqli_query($link, "select * from matricula where estado = 'revisado'");
+        // include("../Controlador/conexion.php");
+        // $consulta = mysqli_query($link, "select * from matricula where estado = 'revisado'");
 
-        while($f = mysqli_fetch_array($consulta)){
-            $id_matricula = $f['id_matricula'];
-            $dni_padre = $f['dni_padre'];
-            $dni_hijo = $f['dni_hijo'];
-            $nombre_hijo = $f['nombre_hijo'];
-            $appat_hijo = $f['appat_hijo'];
-            $apmat_hijo = $f['apmat_hijo'];
-            $estado = $f['estado'];
+        // while($f = mysqli_fetch_array($consulta)){
+        //     $id_matricula = $f['id_matricula'];
+        //     $dni_padre = $f['dni_padre'];
+        //     $dni_hijo = $f['dni_hijo'];
+        //     $nombre_hijo = $f['nombre_hijo'];
+        //     $appat_hijo = $f['appat_hijo'];
+        //     $apmat_hijo = $f['apmat_hijo'];
+        //     $estado = $f['estado'];
 
         ?>
                 <tr>
+                    <?php
+                        if(isset($_SESSION['matricula'])){
+                             foreach($matricula->mostrar_matricula('1') as $datos){
+                    ?>
+
                     <td><?php echo $id_matricula; ?></td>
                     <td><?php echo $dni_padre; ?></td>
                     <td><?php echo $dni_hijo; ?></td>
@@ -63,12 +69,16 @@
                     <td><?php echo $appat_hijo; ?></td>
                     <td><?php echo $apmat_hijo; ?></td>
                     <td><a href="revisar-solicitud-gerencia.php?id=<?php echo $id_matricula; ?>">Revisar documentos</a></td>
-
+                    
+                    <?php
+                             }
+                         }
+                    ?>
                 </tr>
 
 
                 <?php
-        }
+        // }
         ?>
 
 

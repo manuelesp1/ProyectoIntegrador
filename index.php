@@ -26,19 +26,11 @@
                 <li><a href="index.php">Inicio</a></li>
                 <li><a href="#">Nosotros</a></li>
                 <li><a href="#">Contactos</a></li>
-                <?php 
-					if(isset($_SESSION['nombre'])){
-                ?>
-                <li><a href="Controlador/logout.php">Logout</a></li>
-                <li>Bienvenido, <?php echo $_SESSION['nombre']; ?></li>
-                <?php				
-					}
-					else{
-				 ?>
                 <li><a href="Vista/login.html">Login</a></li>
-                <?php 
-				 	}
-				  ?>
+                <li><a href="Controlador/logout.php">Logout</a></li>
+                <li><?php if(isset($_SESSION['usuario'])){
+                    echo strtolower($_SESSION['usuario']['nombres']);
+                } ?></li>
             </ul>
             
         </nav>

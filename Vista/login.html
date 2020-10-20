@@ -20,7 +20,9 @@
     </header>
 
     <section class="ventana">
-		<form class="formulario" method="post" action="../Controlador/procesa-login.php">
+        <!-- <form class="formulario" method="post" action="../Controlador/procesa-login.php">
+         -->
+         <form class="formulario" method="post" action="../Controlador/usuario-control.php"> 
 			<legend class="formulario-titulo">Login</legend>
 			<p class="usuario">
 				<label for="nombre">Nombre: </label>
@@ -29,7 +31,10 @@
 			<p class="contraseña">
 				<label for="Contraseña">Contraseña: </label>
 				<input type="password" name="contraseña" placeholder="ingrese su contraseña" class="input-texto">
-			</p>
+            </p>
+            <p>
+                <input type="hidden" name="accion" value="verificar-usuario">
+            </p>
 			<p class="boton_submit">
 				<input type="submit" name="submit" class="input-submit" >
 			</p>

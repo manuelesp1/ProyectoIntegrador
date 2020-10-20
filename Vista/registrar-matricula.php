@@ -1,8 +1,8 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['nombre'])){
-        header("Location: ./login.html");
-    }
+    // session_start();
+    // if(!isset($_SESSION['nombre'])){
+    //     header("Location: ./login.html");
+    // }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +19,6 @@
                 <li><a href="../index.php">Inicio</a></li>
                 <li><a href="#">Nosotros</a></li>
                 <li><a href="#">Contactos</a></li>
-                <li>Bienvenido, <?php echo $_SESSION['nombre']; ?></li>
             </ul>
             
         </nav>
@@ -27,7 +26,7 @@
 
     <section class="principal">
         <div class="ventana">
-            <form class="formulario" method="post" action="../Controlador/procesa-registroMatricula.php" enctype="multipart/form-data">
+            <form class="formulario" method="post" action="../Controlador/matricula-control.php" enctype="multipart/form-data">
                 <legend class="formulario-titulo">Registro</legend>
                 
                 
@@ -82,6 +81,9 @@
 
                 <p>
                     <input type="hidden" name="estado" value="pendiente">
+                </p>
+                <p>
+                    <input type="hidden" name="accion" value="registrar-matricula">
                 </p>
             
                 <p class="boton_submit">

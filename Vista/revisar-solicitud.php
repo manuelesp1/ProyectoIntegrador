@@ -64,18 +64,22 @@
                     <td><?php echo $appat_hijo; ?> </td>
                     <td><?php echo $apmat_hijo; ?> </td>
                     <td>
-                        <form action="../Controlador/cambiar-estado.php" method="post">
+                        <!-- <form action="../Controlador/cambiar-estado.php" method="post"> -->
+                        <form action="../Controlador/matricula-control.php" method="post">
                             <input type="hidden" name="id_matricula" value="<?php echo $id_matricula ?>">
                             <input type="hidden" name="estado" value="revisado">
                             <input type="hidden" name="pagina" value="admin-pendiente">
+                            <input type="hidden" name="accion" value="cambiar-estado">
                             <input type="submit" name="submit" value="Revisado">
                         </form>
                     </td>
                     <td>
-                        <form action="../Controlador/cambiar-estado.php" method="post">
+                        <!-- <form action="../Controlador/cambiar-estado.php" method="post"> -->
+                        <form action="../Controlador/matricula-control.php" method="post">
                             <input type="hidden" name="id_matricula" value="<?php echo $id_matricula ?>">
                             <input type="hidden" name="estado" value="observado">
                             <input type="hidden" name="pagina" value="admin-pendiente">
+                            <input type="hidden" name="accion" value="cambiar-estado">
                             <input type="submit" name="submit" value="Observado">
                         </form>
                     </td>

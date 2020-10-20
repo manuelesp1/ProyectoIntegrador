@@ -39,21 +39,24 @@
                 <?php
         
         
-        include("../Controlador/conexion.php");
-        $consulta = mysqli_query($link, "select * from matricula where estado = 'pendiente'");
+        // include("../Controlador/conexion.php");
+        // $consulta = mysqli_query($link, "select * from matricula where estado = 'pendiente'");
 
-        while($f = mysqli_fetch_array($consulta)){
-            $id_matricula = $f['id_matricula'];
-            $dni_padre = $f['dni_padre'];
-            $dni_hijo = $f['dni_hijo'];
-            $nombre_hijo = $f['nombre_hijo'];
-            $appat_hijo = $f['appat_hijo'];
-            $apmat_hijo = $f['apmat_hijo'];
-            $estado = $f['estado'];
+        // while($f = mysqli_fetch_array($consulta)){
+        //     $id_matricula = $f['id_matricula'];
+        //     $dni_padre = $f['dni_padre'];
+        //     $dni_hijo = $f['dni_hijo'];
+        //     $nombre_hijo = $f['nombre_hijo'];
+        //     $appat_hijo = $f['appat_hijo'];
+        //     $apmat_hijo = $f['apmat_hijo'];
+        //     $estado = $f['estado'];
+
+        foreach($this->cambiar_estado() as $lista){
+
 
         ?>
                 <tr>
-                    <td><?php echo $id_matricula; ?></td>
+                    <td><?php echo $lista->id_matricula; ?></td>
                     <td><?php echo $dni_padre; ?></td>
                     <td><?php echo $dni_hijo; ?></td>
                     <td><?php echo $nombre_hijo; ?></td>
