@@ -19,11 +19,11 @@
         <div class="menu">
             <ul>
                 <a href="#"><li>Reporte</li></a>
-                <a href="gerencia-pendiente.php"><li>Solicitudes pendientes</li></a>
-                <a href="gerencia-aprobado.php"><li>Solicitudes aprobadas</li></a>
-                <a href="gerencia-rechazado.php"><li>Solicitudes rechazadas</li></a>
+                <a href="../Controlador/matricula-control.php?accion=mostrar-matricula-estado&estado=pendiente"><li>Solicitudes pendientes</li></a>
+                <a href="../Controlador/matricula-control.php?accion=mostrar-matricula-estado&estado=aprobado"><li>Solicitudes aprobadas</li></a>
+                <a href="../Controlador/matricula-control.php?accion=mostrar-matricula-estado&estado=rechazado"><li>Solicitudes rechazadas</li></a>
                 <a href="asignar-rol.html"><li>Nuevo personal</li></a>
-                <a href="cambiar-rol.php"><li>Cambiar rol</li></a>
+                <a href="../Controlador/personal-control.php?accion=mostrar-personal"><li>Cambiar rol</li></a>
                 <a href="../Controlador/logout.php"><li>Cerrar sesión</li></a>
 
             </ul>
@@ -40,38 +40,28 @@
                     <td>Cambiar rol</td>
                 </tr>
                 <?php
-        
-        
-        include("../Controlador/conexion.php");
-        $consulta = mysqli_query($link, "select * from padre where tipo <> 'padre'");
-
-        while($f = mysqli_fetch_array($consulta)){
-            $id_padre = $f['id_padre'];
-            $nombres = $f['nombres'];
-            $ap_materno = $f['ap_materno'];
-            $ap_paterno = $f['ap_paterno'];
-            $correo = $f['correo'];
-            $tipo = $f['tipo'];
-
-        ?>
+                        if(isset($_SESSION['mostrar-personal'])):
+                             foreach($_SESSION['mostrar-personal'] as $datos):
+                    ?>
                 <tr>
-                    <td><?php echo $id_padre; ?></td>
-                    <td><?php echo $nombres; ?></td>
-                    <td><?php echo $ap_materno; ?></td>
-                    <td><?php echo $ap_paterno; ?></td>
-                    <td><?php echo $correo; ?></td>
-                    <td><?php echo $tipo; ?></td>
+                    <td><?php echo $datos['id_padre']; ?></td>
+                    <td><?php echo $datos['nombres']; ?></td>
+                    <td><?php echo $datos['ap_materno']; ?></td>
+                    <td><?php echo $datos['ap_paterno']; ?></td>
+                    <td><?php echo $datos['correo']; ?></td>
+                    <td><?php echo $datos['tipo']; ?></td>
                     <td>
-                        <form action="../Controlador/procesa-cambio-rol.php" method="post">
-                            <input type="hidden" name="id_padre" value="<?php echo $id_padre ?>">
+                        <form action="../Controlador/personal-control.php" method="post">
+                            <input type="hidden" name="id_padre" value="<?php echo $datos['id_padre'] ?>">
                             <input type="hidden" name="nuevo_rol" value="<?php 
-                            if($tipo == 'administracion'){
+                            if($datos['tipo'] == 'administracion'){
                                 echo 'gerencia';
                             }
-                            else if($tipo == 'gerencia'){
+                            else if($datos['tipo'] == 'gerencia'){
                                 echo 'administracion';
                             }
                             ?>">
+                            <input type="hidden" name="accion" value="cambiar-rol">
                             <input type="submit" name="submit" value="Cambiar">
                         </form>
                     </td>
@@ -79,7 +69,8 @@
 
 
                 <?php
-        }
+            endforeach;
+        endif;
         ?>
 
 

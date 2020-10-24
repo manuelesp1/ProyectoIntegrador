@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once("../Controlador/matricula-control.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -20,11 +20,11 @@
         <div class="menu">
             <ul>
                 <a href="#"><li>Reporte</li></a>
-                <a href="gerencia-pendiente.php"><li>Solicitudes pendientes</li></a>
-                <a href="gerencia-aprobado.php"><li>Solicitudes aprobadas</li></a>
-                <a href="gerencia-rechazado.php"><li>Solicitudes rechazadas</li></a>
+                <a href="../Controlador/matricula-control.php?accion=mostrar-matricula-estado&estado=revisado&pagina=gerencia-pendiente"><li>Solicitudes pendientes</li></a>
+                <a href="../Controlador/matricula-control.php?accion=mostrar-matricula-estado&estado=aprobado&pagina=gerencia-aprobado"><li>Solicitudes aprobadas</li></a>
+                <a href="../Controlador/matricula-control.php?accion=mostrar-matricula-estado&estado=rechazado&pagina=gerencia-rechazado"><li>Solicitudes rechazadas</li></a>
                 <a href="asignar-rol.html"><li>Nuevo personal</li></a>
-                <a href="cambiar-rol.php"><li>Cambiar rol</li></a>
+                <a href="../Controlador/personal-control.php?accion=mostrar-personal"><li>Cambiar rol</li></a>
                 <a href="../Controlador/logout.php"><li>Cerrar sesión</li></a>
 
             </ul>
@@ -39,49 +39,24 @@
                     <td>Apellido paterno del hijo</td>
                     <td>Apellido materno del hijo</td>
                     <td>Documentos</td>
-                </tr>
-                <?php
-        
-        
-        // include("../Controlador/conexion.php");
-        // $consulta = mysqli_query($link, "select * from matricula where estado = 'revisado'");
-
-        // while($f = mysqli_fetch_array($consulta)){
-        //     $id_matricula = $f['id_matricula'];
-        //     $dni_padre = $f['dni_padre'];
-        //     $dni_hijo = $f['dni_hijo'];
-        //     $nombre_hijo = $f['nombre_hijo'];
-        //     $appat_hijo = $f['appat_hijo'];
-        //     $apmat_hijo = $f['apmat_hijo'];
-        //     $estado = $f['estado'];
-
-        ?>
-                <tr>
+                </tr>      
                     <?php
-                        if(isset($_SESSION['matricula'])){
-                             foreach($matricula->mostrar_matricula('1') as $datos){
+                        if(isset($_SESSION['mostrar-matricula-estado'])):
+                             foreach($_SESSION['mostrar-matricula-estado'] as $datos):
                     ?>
-
-                    <td><?php echo $id_matricula; ?></td>
-                    <td><?php echo $dni_padre; ?></td>
-                    <td><?php echo $dni_hijo; ?></td>
-                    <td><?php echo $nombre_hijo; ?></td>
-                    <td><?php echo $appat_hijo; ?></td>
-                    <td><?php echo $apmat_hijo; ?></td>
-                    <td><a href="revisar-solicitud-gerencia.php?id=<?php echo $id_matricula; ?>">Revisar documentos</a></td>
-                    
+                    <tr>
+                    <td><?php echo $datos['id_matricula']; ?></td>
+                    <td><?php echo $datos['dni_padre']; ?></td>
+                    <td><?php echo $datos['dni_hijo']; ?></td>
+                    <td><?php echo $datos['nombre_hijo']; ?></td>
+                    <td><?php echo $datos['appat_hijo']; ?></td>
+                    <td><?php echo $datos['apmat_hijo']; ?></td>
+                    <td><a href="../Controlador/matricula-control.php?id=<?php echo $datos['id_matricula']; ?>&accion=mostrar-matricula&tipo=gerencia">Revisar documentos</a></td>
+                    </tr>
                     <?php
-                             }
-                         }
+                             endforeach;
+                            endif;
                     ?>
-                </tr>
-
-
-                <?php
-        // }
-        ?>
-
-
 
             </table>
         </div>

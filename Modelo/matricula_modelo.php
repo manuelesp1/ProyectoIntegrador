@@ -17,10 +17,11 @@ class Matricula_modelo{
 
 	public function mostrar_matricula($id_matricula){
 		$query = $this->db->query("SELECT * FROM matricula where id_matricula = $id_matricula");//proceso almacenado
-		while ($rows = mysqli_fetch_assoc($query)){
-			$matricula = $rows;
+		$array = null;
+		while ($fila = mysqli_fetch_assoc($query)){
+			$array[] = $fila;
 		}
-		return $matricula;
+		return $array;
 	}
 
 	public function cambiar_estado($id_matricula, $nuevo_estado){
@@ -29,7 +30,23 @@ class Matricula_modelo{
 
 	public function mostrar_todo(){
 		$query = $this->db->query("SELECT * from matricula");
+		// $result = $this->db->query($query);  esta linea me ocasiona un error y no muestra datos de la bd
+		$array = null;
+		while($fila = mysqli_fetch_assoc($query)){
+			$array[] = $fila;
+		}
+		return $array;
 	}
+
+	public function mostrar_matricula_estado($estado){
+		$query = $this->db->query("SELECT * from matricula where estado = '$estado'");
+		$array = null;
+		while($fila = mysqli_fetch_assoc($query)){
+			$array[] = $fila;
+		}
+		return $array;
+	}
+	
 	
 }
 

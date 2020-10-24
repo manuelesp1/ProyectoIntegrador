@@ -28,24 +28,6 @@
             </ul>
         </div>
         <div class="reportes">
-            <a href="gerencia-pendiente.php">
-                <p>Atras</p>
-            </a>
-
-            <?php
-                $id = $_GET['id'];
-                include("../Controlador/conexion.php");
-                $consulta = mysqli_query($link, "select id_matricula, dni_padre, dni_hijo, nombre_hijo, appat_hijo, apmat_hijo  from matricula where id_matricula = $id");
-
-                while($f = mysqli_fetch_array($consulta)){
-                    $id_matricula = $f['id_matricula'];
-                    $dni_padre = $f['dni_padre'];
-                    $dni_hijo = $f['dni_hijo'];
-                    $nombre_hijo = $f['nombre_hijo'];
-                    $appat_hijo = $f['appat_hijo'];
-                    $apmat_hijo = $f['apmat_hijo'];
-                }
-            ?>
 
             <table border=1>
                 <tr>
@@ -58,51 +40,51 @@
                     <td></td>
                     <td></td>
                 </tr>
+                <?php
+                        if(isset($_SESSION['mostrar-matricula'])):
+                             foreach($_SESSION['mostrar-matricula'] as $datos):
+                    ?>
                 <tr>
-                    <td><?php echo $id_matricula; ?> </td>
-                    <td><?php echo $dni_padre; ?> </td>
-                    <td><?php echo $dni_hijo; ?> </td>
-                    <td><?php echo $nombre_hijo; ?> </td>
-                    <td><?php echo $appat_hijo; ?> </td>
-                    <td><?php echo $apmat_hijo; ?> </td>
+                    <td><?php echo $datos['id_matricula']; ?></td>
+                    <td><?php echo $datos['dni_padre']; ?></td>
+                    <td><?php echo $datos['dni_hijo']; ?></td>
+                    <td><?php echo $datos['nombre_hijo']; ?></td>
+                    <td><?php echo $datos['appat_hijo']; ?></td>
+                    <td><?php echo $datos['apmat_hijo']; ?></td>
                     <td>
-                        <form action="../Controlador/cambiar-estado.php" method="post">
-                            <input type="hidden" name="id_matricula" value="<?php echo $id_matricula ?>">
-                            <input type="hidden" name="estado" value="aprobado">
+                        <form action="../Controlador/matricula-control.php" method="post">
+                            <input type="hidden" name="id_matricula" value="<?php echo $datos['id_matricula'] ?>">
+                            <input type="hidden" name="nuevo-estado" value="aprobado">
                             <input type="hidden" name="pagina" value="gerencia-pendiente">
+                            <input type="hidden" name="accion" value="cambiar-estado">
                             <input type="submit" name="submit" value="Aprobado">
                         </form>
                     </td>
                     <td>
-                        <form action="../Controlador/cambiar-estado.php" method="post">
-                            <input type="hidden" name="id_matricula" value="<?php echo $id_matricula ?>">
-                            <input type="hidden" name="estado" value="Rechazado">
+                        <form action="../Controlador/matricula-control.php" method="post">
+                            <input type="hidden" name="id_matricula" value="<?php echo $datos['id_matricula'] ?>">
+                            <input type="hidden" name="nuevo-estado" value="rechazado">
+                            <input type="hidden" name="accion" value="cambiar-estado">
                             <input type="hidden" name="pagina" value="gerencia-pendiente">
                             <input type="submit" name="submit" value="Rechazado">
                         </form>
                     </td>
                 </tr>
-
+                <?php
+                             endforeach;
+                            endif;
+                    ?>
             </table>
 
             <div class="imagen">
-            <?php
-        
-        $consulta = mysqli_query($link, "select dni_padre_img_del, dni_padre_img_tra,  dni_hijo_img_del, dni_hijo_img_tra, certificado, comprobante from matricula where id_matricula = $id");
-
-        while($f = mysqli_fetch_array($consulta)){
             
-    ?>
-            <img src="data:image/jpg;base64,<?php echo base64_encode($f['dni_padre_img_del']); ?>" >
-            <img src="data:image/jpg;base64,<?php echo base64_encode($f['dni_padre_img_tra']); ?>" >
-            <img src="data:image/jpg;base64,<?php echo base64_encode($f['dni_hijo_img_del']); ?>" >
-            <img src="data:image/jpg;base64,<?php echo base64_encode($f['dni_hijo_img_del']); ?>" >
-            <img src="data:image/jpg;base64,<?php echo base64_encode($f['certificado']); ?>" >
-            <img src="data:image/jpg;base64,<?php echo base64_encode($f['comprobante']); ?>" >
-        
-        <?php
-        }
-        ?>
+            <img src="data:image/jpg;base64,<?php echo base64_encode($datos['dni_padre_img_del']); ?>" >
+            <img src="data:image/jpg;base64,<?php echo base64_encode($datos['dni_padre_img_tra']); ?>" >
+            <img src="data:image/jpg;base64,<?php echo base64_encode($datos['dni_hijo_img_del']); ?>" >
+            <img src="data:image/jpg;base64,<?php echo base64_encode($datos['dni_hijo_img_del']); ?>" >
+            <img src="data:image/jpg;base64,<?php echo base64_encode($datos['certificado']); ?>" >
+            <img src="data:image/jpg;base64,<?php echo base64_encode($datos['comprobante']); ?>" >
+
             </div>
 
             

@@ -1,5 +1,6 @@
 <?php 
 require_once("../Modelo/matricula_modelo.php");
+session_start();
 
 if(isset($_POST['submit'])){
     $accion = $_POST['accion'];
@@ -40,14 +41,66 @@ if(isset($_POST['submit'])){
 
     else if($accion == "cambiar-estado"){
         $id_matricula =$_POST['id_matricula'];
-        $estado = $_POST['estado'];
+        $nuevo_estado = $_POST['nuevo-estado'];
         $pagina = $_POST['pagina'];
-
         
         $matricula = new Matricula_modelo();
         $matricula->cambiar_estado($id_matricula, $nuevo_estado);
         if($pagina == 'admin-pendiente'){
-            header("Location: ./../Vista/admin-pendiente.php");
+            header("Location: matricula-control.php?accion=mostrar-matricula-estado&estado=pendiente&pagina=admin-pendiente");
+        }
+        else if($pagina == 'admin-revisado'){
+            header("Location: matricula-control.php?accion=mostrar-matricula-estado&estado=revisado&pagina=admin-revisado");
+        }
+        else if($pagina == 'admin-observado'){
+            header("Location: matricula-control.php?accion=mostrar-matricula-estado&estado=observado&pagina=admin-observado");
+        }
+        else if($pagina == 'gerencia-pendiente'){
+            header("Location: matricula-control.php?accion=mostrar-matricula-estado&estado=revisado&pagina=gerencia-pendiente");
+        }
+        else if($pagina == 'gerencia-aprobado'){
+            header("Location: matricula-control.php?accion=mostrar-matricula-estado&estado=aprobado&pagina=gerencia-aprobado");
+        }
+        else if($pagina == 'gerencia-rechazado'){
+            header("Location: matricula-control.php?accion=mostrar-matricula-estado&estado=rechazado&pagina=gerencia-rechazado");
+        }
+    }
+    else if($accion == "mostrar-matricula"){
+        $id_matricula = $_POST['id_matricula'];
+        $datos = new Matricula_modelo();
+        $matricula = $datos->mostrar_matricula($id_matricula);
+        $_SESSION['mostrar-matricula'] = $matricula;
+        header("location: ./../Vista/gerencia-pendiente.php");
+
+    }
+}else{
+    $accion = $_GET['accion'];
+
+    if($accion == "mostrar-matricula"){
+        $id_matricula = $_GET['id'];
+        $tipo = $_GET['tipo'];
+        $datos = new Matricula_modelo();
+        $matricula = $datos->mostrar_matricula($id_matricula);
+        $_SESSION['mostrar-matricula'] = $matricula;
+
+        if($tipo == 'gerencia'){
+            header("location: ./../Vista/revisar-solicitud-gerencia.php");
+        }
+        else if($tipo == 'administracion'){
+            header("location: ./../Vista/revisar-solicitud-admin.php");
+        }
+         
+    }
+
+    if($accion == "mostrar-matricula-estado"){
+        $estado = $_GET['estado'];
+        $pagina = $_GET['pagina']; 
+        $datos = new Matricula_modelo();
+        $matricula = $datos->mostrar_matricula_estado($estado);
+        $_SESSION['mostrar-matricula-estado'] = $matricula;
+        
+        if($pagina == 'admin-pendiente'){
+            header("location: ./../Vista/admin-pendiente.php");
         }
         else if($pagina == 'admin-revisado'){
             header("Location: ./../Vista/admin-revisado.php");
@@ -65,53 +118,7 @@ if(isset($_POST['submit'])){
             header("Location: ./../Vista/gerencia-rechazado.php");
         }
     }
-    else if($accion == "mostrar-matricula"){
-        $id_matricula = $_POST['id_matricula'];
-        $datos = new Matricula_modelo();
-        $matricula = $datos->mostrar_matricula($id_matricula);
-        $_SESSION['matricula'] = $matricula;
-        header("location: ./../Vista/gerencia-pendiente.php");
-    }
+    
 }
 
-$datos = new Matricula_modelo();
-$matricula = $datos->mostrar_todo();
-header("location: ./../Vista/gerencia-pendiente.php");
-
-
-
-
-
-// include('conexion.php');
-// $dni_padre = mysqli_real_escape_string($link,$_POST['dni_padre']);
-// $nombre_hijo = mysqli_real_escape_string($link,$_POST['nombre_hijo']);
-// $appat_hijo = mysqli_real_escape_string($link,$_POST['appat_hijo']);
-// $apmat_hijo = mysqli_real_escape_string($link,$_POST['apmat_hijo']);
-// $dni_hijo = mysqli_real_escape_string($link,$_POST['dni_hijo']);
-
-// $dni_padre_del = $_FILES['dni_padre_img_del']['tmp_name'];
-// $dni_padre_img_del = addslashes(file_get_contents($dni_padre_del));
-
-// $dni_padre_tra = $_FILES['dni_padre_img_tra']['tmp_name'];
-// $dni_padre_img_tra = addslashes(file_get_contents($dni_padre_tra));
-
-// $dni_hijo_del = $_FILES['dni_hijo_img_del']['tmp_name'];
-// $dni_hijo_img_del = addslashes(file_get_contents($dni_hijo_del));
-
-// $dni_hijo_tra = $_FILES['dni_hijo_img_tra']['tmp_name'];
-// $dni_hijo_img_tra = addslashes(file_get_contents($dni_hijo_tra));
-
-// $certif = $_FILES['certificado']['tmp_name'];
-// $certificado = addslashes(file_get_contents($certif));
-
-// $comprob = $_FILES['comprobante']['tmp_name'];
-// $comprobante = addslashes(file_get_contents($comprob));
-
-// $estado = mysqli_real_escape_string($link,$_POST['estado']);
-
-// mysqli_query($link, "insert into matricula (dni_padre, dni_hijo, nombre_hijo, appat_hijo, apmat_hijo, dni_padre_img_del,dni_padre_img_tra, dni_hijo_img_del,dni_hijo_img_tra, certificado, comprobante, estado) values ('$dni_padre', '$nombre_hijo', '$appat_hijo', '$apmat_hijo', '$dni_hijo', '$dni_padre_img_del', '$dni_padre_img_tra', '$dni_hijo_img_del', '$dni_hijo_img_tra', '$certificado', '$comprobante', '$estado')");
-
-// header("Location: ./../index.php");
-
-// mysqli_close($link);
  ?>
