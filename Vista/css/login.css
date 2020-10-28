@@ -3,7 +3,7 @@
 	margin: 0;
 }
 .bg-light {
-	background-color: #f8f9fa41 !important;
+	background-color: #fff00b  !important;
   }
 body{
 	margin: 0;
@@ -72,7 +72,7 @@ body{
 .formulario{	
 	padding: 1em;
 	border-radius: 25px;
-	border: 1px solid  #18badfd1 ;
+	border: 1px solid  #ffbf00d1 ;
 	z-index: 15;
 	position: relative;
 }
@@ -80,7 +80,7 @@ body{
 	content: "";
 	opacity: .60;
 	z-index: -70;
-	background-color: #24626b;
+	background-color: #390b0b;
 	position: absolute;
 	top: 0;
 	left: 0;
