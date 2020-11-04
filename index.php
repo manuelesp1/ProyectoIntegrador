@@ -18,7 +18,30 @@ session_start();
 </head>
 
 <body>
-    
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="../index.php">Inicio</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="../Vista/nosotros.html">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../index.html">Contactos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Login</a>
+                </li>
+                <?php 
+					if(isset($_SESSION['nombre'])){
+                ?>
+              </ul>
+              <img src="Vista/img/escudo-laLetona-n.png" alt="" width="2.5%" height="2.5%"><span class="navbar-text">  Colegio La leona</span>
+            </div>
+          </nav>
+
     <header class="banner">
         <nav class="menu">
             <!-- <div class="slider">

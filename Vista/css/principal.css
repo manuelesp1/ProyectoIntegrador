@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+.bg-light {
+	background-color: #f2b410  !important;
+  }
 @font-face{
     font-family: open-sanz;
     src: url("../fonts/OpenSans-Light.ttf");
