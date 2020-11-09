@@ -34,6 +34,10 @@ session_start();
                 <li class="nav-item">
                     <a class="nav-link" href="../index.html">Login</a>
                 </li>
+                <li><a href="Controlador/logout.php">Logout</a></li>
+                <li><?php if(isset($_SESSION['usuario'])){
+                    echo strtolower($_SESSION['usuario']['nombres']);
+                } ?></li>
                 
               </ul>
               <img src="Vista/img/escudo-laLetona-n.png" alt="" width="2.5%" height="2.5%"><span class="navbar-text">  Colegio La leona</span>
