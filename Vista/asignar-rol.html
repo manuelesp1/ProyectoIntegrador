@@ -8,7 +8,7 @@
 </head>
 <body>
     <section class="ventana">
-		<form class="formulario" method="post" action="../Controlador/procesa-nuevo-personal.php">
+		<form class="formulario" method="post" action="../Controlador/personal-control.php">
 			<legend class="formulario-titulo">Registro</legend>
 			
 			<p>
@@ -34,13 +34,17 @@
 			</p>
 
             <p>
-                <label for="rol">Elija rol: </label>
-                <select name="rol" id="rol">
+                <label for="tipo">Elija rol: </label>
+                <select name="tipo" id="tipo">
                     <option value="">Seleccione</option>
                     <option value="administracion">administracion</option>
                     <option value="gerencia">Gerencia</option>
                 </select>
-            </p>
+			</p>
+			<p>
+				
+				<input type="hidden" name="accion" value="nuevo-personal">
+			</p>
 		
 			<p class="boton_submit">
 				<input type="submit" name="submit" class="input-submit" >
