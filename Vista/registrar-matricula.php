@@ -22,7 +22,7 @@
                 <li><a href="../index.php">Inicio</a></li>
                 <li><a href="#">Nosotros</a></li>
                 <li><a href="#">Contactos</a></li>
-                <li>Bienvenido, <?php echo $_SESSION['nombre']; ?></li>
+                <!-- <li>Bienvenido, <?php echo $_SESSION['nombre']; ?></li> -->
 
             </ul>
             
@@ -31,10 +31,10 @@
 
     <section class="principal">
         <div class="ventana">
-            <form class="formulario" method="post" id="formulario" onsubmit="return validar();" action="../Controlador/procesa-registroMatricula.php" enctype="multipart/form-data">
+            <form class="formulario" method="post" id="formulario" onsubmit="return validar();" action="../Controlador/matricula-control.php" enctype="multipart/form-data">
                 <legend class="formulario-titulo">Registro</legend>                
                 
-                <p>
+                <!-- <p>
                     <label for="dni">DNI del padre</label>
                     <input type="text" class="form-control" name="dni_padre" id="dni_padre" class="input-texto">
                 </p>
@@ -49,13 +49,25 @@
                 <p class="apellido">
                     <label for="apemat">Apellido materno del hijo: </label>
                     <input type="text" class="form-control" name="apmat_hijo" id="apmat_hijo" placeholder="ingrese su apellido" class="input-texto">
+                </p> -->
+                <p class="usuario">
+                    <label for="vacante">Ingrese el numero de vacante: </label>
+                    <input type="text" class="form-control" name="vacante" id="vacante" placeholder="ingrese el numero de vacante" class="input-texto">
                 </p>
                 <p>
-                    <label for="dni">DNI del hijo</label>
-                    <input type="text" class="form-control" name="dni_hijo" id="dni_hijo" class="input-texto">
+                    <label for="dni">DNI: </label>
+                    <input type="file" class="input-texto" name="dni" id="dni">
+                </p>
+                <p>
+                    <label for="dni">Certificado: </label>
+                    <input type="file" class="input-texto" name="certificado">
+                </p>
+                <p>
+                    <label for="dni">Colegio de procedencia: </label>
+                    <input type="file" class="input-texto" name="procedencia">
                 </p>
                 
-                <p>
+                <!-- <p>
                     <label for="dni">DNI del padre (Parte delantera)</label>
                     <input type="file" class="input-texto" name="dni_padre_img_del">
                 </p>
@@ -82,15 +94,11 @@
                 <p>
                     <label for="dni">Comprobante de pago</label>
                     <input type="file" class="input-texto" name="comprobante">
-                </p>
-
-
-                <p>
-                    <input type="hidden" name="estado" value="pendiente">
-                </p>
-
+                </p> -->
             
                 <p class="boton_submit">
+                    <input type="hidden" name="accion" value="registrar-matricula">
+                    <input type="hidden" name="estado" value="pendiente">
                     <input type="submit" name="submit" class="input-submit" >
                 </p>
                 <h6 id="error"></h6>

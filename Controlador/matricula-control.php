@@ -7,35 +7,42 @@ if(isset($_POST['submit'])){
 
 
     if($accion == 'registrar-matricula'){
-        $dni_padre = $_POST['dni_padre'];
-        $nombre_hijo = $_POST['nombre_hijo'];
-        $appat_hijo = $_POST['appat_hijo'];
-        $apmat_hijo = $_POST['apmat_hijo'];
-        $dni_hijo = $_POST['dni_hijo'];
+        // $dni_padre = $_POST['dni_padre'];
+        // $nombre_hijo = $_POST['nombre_hijo'];
+        // $appat_hijo = $_POST['appat_hijo'];
+        // $apmat_hijo = $_POST['apmat_hijo'];
+        // $dni_hijo = $_POST['dni_hijo'];
 
-        $dni_padre_del = $_FILES['dni_padre_img_del']['tmp_name'];
-        $dni_padre_img_del = addslashes(file_get_contents($dni_padre_del));
+        // $dni_padre_del = $_FILES['dni_padre_img_del']['tmp_name'];
+        // $dni_padre_img_del = addslashes(file_get_contents($dni_padre_del));
 
-        $dni_padre_tra = $_FILES['dni_padre_img_tra']['tmp_name'];
-        $dni_padre_img_tra = addslashes(file_get_contents($dni_padre_tra));
+        // $dni_padre_tra = $_FILES['dni_padre_img_tra']['tmp_name'];
+        // $dni_padre_img_tra = addslashes(file_get_contents($dni_padre_tra));
 
-        $dni_hijo_del = $_FILES['dni_hijo_img_del']['tmp_name'];
-        $dni_hijo_img_del = addslashes(file_get_contents($dni_hijo_del));
+        // $dni_hijo_del = $_FILES['dni_hijo_img_del']['tmp_name'];
+        // $dni_hijo_img_del = addslashes(file_get_contents($dni_hijo_del));
 
-        $dni_hijo_tra = $_FILES['dni_hijo_img_tra']['tmp_name'];
-        $dni_hijo_img_tra = addslashes(file_get_contents($dni_hijo_tra));
+        // $dni_hijo_tra = $_FILES['dni_hijo_img_tra']['tmp_name'];
+        // $dni_hijo_img_tra = addslashes(file_get_contents($dni_hijo_tra));
 
-        $certif = $_FILES['certificado']['tmp_name'];
-        $certificado = addslashes(file_get_contents($certif));
+        // $certif = $_FILES['certificado']['tmp_name'];
+        // $certificado = addslashes(file_get_contents($certif));
 
-        $comprob = $_FILES['comprobante']['tmp_name'];
-        $comprobante = addslashes(file_get_contents($comprob));
+        // $comprob = $_FILES['comprobante']['tmp_name'];
+        // $comprobante = addslashes(file_get_contents($comprob));
+        $vacante = $_POST['vacante'];
+        $dni = $_FILES['dni']['tmp_name'];
+        $img_dni = addslashes(file_get_contents($dni));
+        $certificado = $_FILES['certificado']['tmp_name'];
+        $img_certificado = addslashes(file_get_contents($certificado));
+        $procedencia = $_FILES['procedencia']['tmp_name'];
+        $img_procedencia = addslashes(file_get_contents($procedencia));
 
-        $estado = $_POST['estado'];
-        $nuevo_estado = $_POST['nuevo_estado'];
+        // $estado = $_POST['estado'];
+        // $nuevo_estado = $_POST['nuevo_estado'];
 
         $matricula = new Matricula_modelo();
-        $matricula->agregar_matricula($dni_padre, $nombre_hijo, $appat_hijo, $apmat_hijo, $dni_hijo, $dni_padre_img_del, $dni_padre_img_tra, $dni_hijo_img_del, $dni_hijo_img_tra, $certificado, $comprobante, $estado);
+        $matricula->registrar_matricula($vacante, $img_dni, $img_certificado, $img_procedencia);
         header("location: ./../index.php");
     }
 

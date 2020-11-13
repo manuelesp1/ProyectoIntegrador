@@ -1,7 +1,7 @@
 <?php 
 	class Connect{
 		public static function connection(){
-			$conexion = new mysqli("127.0.0.1:3306", "root", "", "proyectoleona3");
+			$conexion = new mysqli("127.0.0.1:3307", "root", "", "proyectoleona3");
 			return $conexion;
 		}
 	}

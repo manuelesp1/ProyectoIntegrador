@@ -11,8 +11,9 @@ class Matricula_modelo{
 		$this->matricula = array();
 	}
 
-	public function agregar_matricula($dni_padre, $nombre_hijo, $appat_hijo, $apmat_hijo, $dni_hijo, $dni_padre_img_del, $dni_padre_img_tra, $dni_hijo_img_del, $dni_hijo_img_tra, $certificado, $comprobante, $estado){
-		$this->db->query("insert into matricula (dni_padre, dni_hijo, nombre_hijo, appat_hijo, apmat_hijo, dni_padre_img_del,dni_padre_img_tra, dni_hijo_img_del,dni_hijo_img_tra, certificado, comprobante, estado) values ('$dni_padre', '$nombre_hijo', '$appat_hijo', '$apmat_hijo', '$dni_hijo', '$dni_padre_img_del', '$dni_padre_img_tra', '$dni_hijo_img_del', '$dni_hijo_img_tra', '$certificado', '$comprobante', '$estado')");
+	public function registrar_matricula($vacante, $img_dni, $img_certificado, $img_procedencia){
+		$num = 1;
+		$this->db->query("insert into solicitud (foto_dni, vacante, certificado, cole_procedencia) values ('$img_dni', '$vacante', '$img_certificado', '$img_procedencia')");
 	}
 
 	public function mostrar_matricula($id_matricula){
