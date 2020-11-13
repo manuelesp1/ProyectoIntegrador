@@ -1,0 +1,350 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.4
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 13-11-2020 a las 04:24:55
+-- Versión del servidor: 10.4.14-MariaDB
+-- Versión de PHP: 7.4.11
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `proyectoleona3`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `alumno`
+--
+
+CREATE TABLE `alumno` (
+  `id_alumno` int(10) NOT NULL,
+  `nombres` varchar(20) NOT NULL,
+  `apellidoMat` varchar(15) NOT NULL,
+  `apellidoPat` varchar(15) NOT NULL,
+  `id_padre` int(10) NOT NULL,
+  `id_grado` int(10) NOT NULL,
+  `id_estado` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estado`
+--
+
+CREATE TABLE `estado` (
+  `id_estado` int(10) NOT NULL,
+  `descripcion` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `grado`
+--
+
+CREATE TABLE `grado` (
+  `id_grado` int(10) NOT NULL,
+  `descripcion` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `padre`
+--
+
+CREATE TABLE `padre` (
+  `id_padre` int(10) NOT NULL,
+  `nombres` varchar(20) NOT NULL,
+  `apellidoM` varchar(15) NOT NULL,
+  `apellidoP` varchar(15) NOT NULL,
+  `telefono` int(15) NOT NULL,
+  `direccion` varchar(30) NOT NULL,
+  `dni` int(10) NOT NULL,
+  `id_usuario` int(10) NOT NULL,
+  `id_rol` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `padre`
+--
+
+INSERT INTO `padre` (`id_padre`, `nombres`, `apellidoM`, `apellidoP`, `telefono`, `direccion`, `dni`, `id_usuario`, `id_rol`) VALUES
+(1, 'romo', 're', 're', 5645, 'dfg', 546546, 2, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pago`
+--
+
+CREATE TABLE `pago` (
+  `id_pago` int(10) NOT NULL,
+  `monto` double NOT NULL,
+  `fecha` varchar(10) NOT NULL,
+  `id_padre` int(10) NOT NULL,
+  `id_solicitud` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `roles`
+--
+
+CREATE TABLE `roles` (
+  `id_rol` int(10) NOT NULL,
+  `descripcion` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `roles`
+--
+
+INSERT INTO `roles` (`id_rol`, `descripcion`) VALUES
+(1, 'padre'),
+(2, 'administracion'),
+(3, 'gerencia');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `solicitud`
+--
+
+CREATE TABLE `solicitud` (
+  `id_solicitud` int(20) NOT NULL,
+  `foto_dni` mediumblob NOT NULL,
+  `vacante` int(5) NOT NULL,
+  `certificado` mediumblob NOT NULL,
+  `cole_procedencia` mediumblob NOT NULL,
+  `id_trabajador` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `trabajador`
+--
+
+CREATE TABLE `trabajador` (
+  `id_trabajador` int(10) NOT NULL,
+  `nombres` varchar(20) NOT NULL,
+  `apellidoPa` varchar(15) NOT NULL,
+  `apellidoMa` varchar(15) NOT NULL,
+  `telefono` int(10) NOT NULL,
+  `id_rol` int(10) NOT NULL,
+  `id_usuario` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `trabajador`
+--
+
+INSERT INTO `trabajador` (`id_trabajador`, `nombres`, `apellidoPa`, `apellidoMa`, `telefono`, `id_rol`, `id_usuario`) VALUES
+(1, 'juan', 'l', 'm', 654654645, 2, 1),
+(2, 'jo', 'h', 'f', 435435, 3, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id_usuario` int(10) NOT NULL,
+  `correo` varchar(30) NOT NULL,
+  `contraseña` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id_usuario`, `correo`, `contraseña`) VALUES
+(1, 'leo@leo.com', '123'),
+(2, 'ni@ni.com', '123'),
+(3, 'hol@hol.com', '123'),
+(4, 'kin@kin.com', '123');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `alumno`
+--
+ALTER TABLE `alumno`
+  ADD PRIMARY KEY (`id_alumno`),
+  ADD KEY `id_padre` (`id_padre`),
+  ADD KEY `id_grado` (`id_grado`),
+  ADD KEY `id_estado` (`id_estado`);
+
+--
+-- Indices de la tabla `estado`
+--
+ALTER TABLE `estado`
+  ADD PRIMARY KEY (`id_estado`);
+
+--
+-- Indices de la tabla `grado`
+--
+ALTER TABLE `grado`
+  ADD PRIMARY KEY (`id_grado`);
+
+--
+-- Indices de la tabla `padre`
+--
+ALTER TABLE `padre`
+  ADD PRIMARY KEY (`id_padre`),
+  ADD KEY `id_usuario` (`id_usuario`),
+  ADD KEY `id_rol` (`id_rol`);
+
+--
+-- Indices de la tabla `pago`
+--
+ALTER TABLE `pago`
+  ADD PRIMARY KEY (`id_pago`),
+  ADD KEY `id_padre` (`id_padre`),
+  ADD KEY `id_solicitud` (`id_solicitud`);
+
+--
+-- Indices de la tabla `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id_rol`);
+
+--
+-- Indices de la tabla `solicitud`
+--
+ALTER TABLE `solicitud`
+  ADD PRIMARY KEY (`id_solicitud`),
+  ADD KEY `id_trabajador` (`id_trabajador`);
+
+--
+-- Indices de la tabla `trabajador`
+--
+ALTER TABLE `trabajador`
+  ADD PRIMARY KEY (`id_trabajador`),
+  ADD KEY `id_usuario` (`id_usuario`),
+  ADD KEY `id_rol` (`id_rol`);
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id_usuario`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `alumno`
+--
+ALTER TABLE `alumno`
+  MODIFY `id_alumno` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `estado`
+--
+ALTER TABLE `estado`
+  MODIFY `id_estado` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `grado`
+--
+ALTER TABLE `grado`
+  MODIFY `id_grado` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `padre`
+--
+ALTER TABLE `padre`
+  MODIFY `id_padre` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `pago`
+--
+ALTER TABLE `pago`
+  MODIFY `id_pago` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id_rol` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `solicitud`
+--
+ALTER TABLE `solicitud`
+  MODIFY `id_solicitud` int(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `trabajador`
+--
+ALTER TABLE `trabajador`
+  MODIFY `id_trabajador` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id_usuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `alumno`
+--
+ALTER TABLE `alumno`
+  ADD CONSTRAINT `alumno_ibfk_1` FOREIGN KEY (`id_grado`) REFERENCES `grado` (`id_grado`),
+  ADD CONSTRAINT `alumno_ibfk_2` FOREIGN KEY (`id_estado`) REFERENCES `estado` (`id_estado`),
+  ADD CONSTRAINT `alumno_ibfk_3` FOREIGN KEY (`id_padre`) REFERENCES `padre` (`id_padre`);
+
+--
+-- Filtros para la tabla `padre`
+--
+ALTER TABLE `padre`
+  ADD CONSTRAINT `padre_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
+  ADD CONSTRAINT `padre_ibfk_2` FOREIGN KEY (`id_rol`) REFERENCES `roles` (`id_rol`);
+
+--
+-- Filtros para la tabla `pago`
+--
+ALTER TABLE `pago`
+  ADD CONSTRAINT `pago_ibfk_1` FOREIGN KEY (`id_solicitud`) REFERENCES `solicitud` (`id_solicitud`),
+  ADD CONSTRAINT `pago_ibfk_2` FOREIGN KEY (`id_padre`) REFERENCES `padre` (`id_padre`);
+
+--
+-- Filtros para la tabla `solicitud`
+--
+ALTER TABLE `solicitud`
+  ADD CONSTRAINT `solicitud_ibfk_1` FOREIGN KEY (`id_trabajador`) REFERENCES `trabajador` (`id_trabajador`);
+
+--
+-- Filtros para la tabla `trabajador`
+--
+ALTER TABLE `trabajador`
+  ADD CONSTRAINT `trabajador_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
+  ADD CONSTRAINT `trabajador_ibfk_2` FOREIGN KEY (`id_rol`) REFERENCES `roles` (`id_rol`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
