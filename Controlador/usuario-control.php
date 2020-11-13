@@ -7,58 +7,26 @@ if(isset($_POST['submit'])){
 
     
     if($accion == 'verificar-usuario'){
-        $nombre = $_POST['nombre'];
+        $correo = $_POST['correo'];
         $contraseña = $_POST['contraseña'];
         $datos = new Usuario_modelo();
-        $usuario = $datos->verificar_usuario($nombre, $contraseña);
+        $usuario = $datos->verificar_usuario($correo, $contraseña);
         $_SESSION['usuario'] = $usuario;
 
-        if($_SESSION['usuario']['tipo'] == 'padre'){
+        if($_SESSION['usuario'] == null){
+            echo("sus datos son incorrectos");
+            header("location: ./../Vista/login.html");//aqui reenvia si no coinciden las credenciales
+        }
+
+        if($_SESSION['usuario']['id_rol'] == '1'){
             header("location: ./../index.php");
         }
-        else if($_SESSION['usuario']['tipo'] == 'administracion'){
+        else if($_SESSION['usuario']['id_rol'] == '2'){
             header("location: ./../Vista/admin-pendiente.php");
         }
-        else if($_SESSION['usuario']['tipo'] == 'gerencia'){
+        else if($_SESSION['usuario']['id_rol'] == '3'){
             header("location: ./../Vista/gerencia-pendiente.php");
-        }
-        else{
-            header("location: ./../index.php");
         }
     }
 }
-
-
-
-// include('conexion.php');
-
-// $nombre = mysqli_real_escape_string($link, $_POST['nombre']);
-// $contraseña = mysqli_real_escape_string($link, $_POST['contraseña']);
-
-// $consulta = "select*from padre where nombres ='$nombre' and contraseña = '$contraseña'";
-
-// $result = mysqli_query($link, $consulta);
-// $row = mysqli_fetch_array($result); 
-
-// if(mysqli_num_rows($result) != 0){
-// 	$_SESSION['nombre'] = $row['nombres'];
-// 	$_SESSION['tipo'] = $row['tipo'];
-
-// 	if($_SESSION['tipo'] == 'administracion'){
-// 		header("Location: ./../Vista/admin-pendiente.php");
-// 	}
-// 	else if($_SESSION['tipo'] == 'gerencia'){
-// 		header("Location: ./../Vista/gerencia-pendiente.php");
-// 	}
-// 	else{
-// 		header("Location: ./../index.php");
-// 	}
-// }
-// else{
-// 	header("Location: ./../index.php");
-// }
-
-// mysqli_free_result($result);
-// mysqli_close($link);
-
  ?>

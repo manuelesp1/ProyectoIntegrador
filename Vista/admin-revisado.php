@@ -1,5 +1,6 @@
 <?php
-    session_start();
+    require_once("../Controlador/matricula-control.php");
+    $matricula = Matricula_control::admin_revisado();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,19 +13,7 @@
 </head>
 
 <body>
-    <section class="banner">
-        <p>Bienvenido, <?php echo $_SESSION['nombre'] ?></p>
-    </section>
-    <section class="principal">
-        <div class="menu">
-            <ul>
-                <a href="#"><li>Reporte</li></a>
-                <a href="../Controlador/matricula-control.php?accion=mostrar-matricula-estado&estado=pendiente&pagina=admin-pendiente"><li>Solicitudes pendientes</li></a>
-                <a href="../Controlador/matricula-control.php?accion=mostrar-matricula-estado&estado=revisado&pagina=admin-revisado"><li>Solicitudes revisadas</li></a>
-                <a href="../Controlador/matricula-control.php?accion=mostrar-matricula-estado&estado=observado&pagina=admin-observado"><li>Solicitudes observadas</li></a>
-                <a href="../Controlador/logout.php"><li>Cerrar sesión</li></a>
-            </ul>
-        </div>
+    
         <div class="reportes">
             <table border=1>
                 <tr>

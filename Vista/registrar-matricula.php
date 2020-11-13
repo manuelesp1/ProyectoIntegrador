@@ -34,10 +34,6 @@
             <form class="formulario" method="post" id="formulario" onsubmit="return validar();" action="../Controlador/matricula-control.php" enctype="multipart/form-data">
                 <legend class="formulario-titulo">Registro</legend>                
                 
-                <!-- <p>
-                    <label for="dni">DNI del padre</label>
-                    <input type="text" class="form-control" name="dni_padre" id="dni_padre" class="input-texto">
-                </p>
                 <p class="usuario">
                     <label for="nomb">Nombre del hijo: </label>
                     <input type="text" class="form-control" name="nombre_hijo" id="nombre_hijo" placeholder="ingrese su nombre" class="input-texto">
@@ -49,7 +45,7 @@
                 <p class="apellido">
                     <label for="apemat">Apellido materno del hijo: </label>
                     <input type="text" class="form-control" name="apmat_hijo" id="apmat_hijo" placeholder="ingrese su apellido" class="input-texto">
-                </p> -->
+                </p>
                 <p class="usuario">
                     <label for="vacante">Ingrese el numero de vacante: </label>
                     <input type="text" class="form-control" name="vacante" id="vacante" placeholder="ingrese el numero de vacante" class="input-texto">
@@ -66,39 +62,9 @@
                     <label for="dni">Colegio de procedencia: </label>
                     <input type="file" class="input-texto" name="procedencia">
                 </p>
-                
-                <!-- <p>
-                    <label for="dni">DNI del padre (Parte delantera)</label>
-                    <input type="file" class="input-texto" name="dni_padre_img_del">
-                </p>
-                <p>
-                    <label for="dni">DNI del padre (Parte trasera)</label>
-                    <input type="file" class="input-texto" name="dni_padre_img_tra">
-                </p>
-                <p>
-                    <label for="dni">DNI del hijo (Parte delantera)</label>
-                    <input type="file" class="input-texto" name="dni_hijo_img_del">
-                </p>
-                <p>
-                    <label for="dni">DNI del hijo (Parte trasera)</label>
-                    <input type="file" class="input-texto" name="dni_hijo_img_tra">
-                </p>
-                <p>
-                    <label for="dni">Certificado de estudios</label>
-                    <input type="file" class="input-texto" name="certificado">
-                </p>
-                <p>
-                    <label for="dni">Acta directorial</label>
-                    <input type="file" class="input-texto" name="acta_directorial">
-                </p>
-                <p>
-                    <label for="dni">Comprobante de pago</label>
-                    <input type="file" class="input-texto" name="comprobante">
-                </p> -->
-            
                 <p class="boton_submit">
                     <input type="hidden" name="accion" value="registrar-matricula">
-                    <input type="hidden" name="estado" value="pendiente">
+                    <input type="hidden" name="estado" value="1">
                     <input type="submit" name="submit" class="input-submit" >
                 </p>
                 <h6 id="error"></h6>

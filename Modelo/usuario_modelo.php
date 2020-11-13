@@ -9,9 +9,9 @@ class Usuario_modelo{
         $this->usuario = array();
     }
 
-    public function verificar_usuario($nombre, $contraseña){
+    public function verificar_usuario($correo, $contraseña){
         
-        $query = $this->db->query("SELECT * from usuario where correo ='$nombre' and contraseña = '$contraseña'");//proceso almacenado
+        $query = $this->db->query("SELECT t2.id_padre, t2.nombres, t1.correo, t1.contraseña, t2.id_rol from usuario t1 inner join padre t2 on t1.id_usuario = t2.id_usuario where t1.correo ='$correo' and t1.contraseña = '$contraseña'");//proceso almacenado
 
         while($rows = mysqli_fetch_assoc($query)){
             $usuario = $rows;

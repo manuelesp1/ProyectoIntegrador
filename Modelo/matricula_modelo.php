@@ -11,9 +11,11 @@ class Matricula_modelo{
 		$this->matricula = array();
 	}
 
-	public function registrar_matricula($vacante, $img_dni, $img_certificado, $img_procedencia){
-		$num = 1;
-		$this->db->query("insert into solicitud (foto_dni, vacante, certificado, cole_procedencia) values ('$img_dni', '$vacante', '$img_certificado', '$img_procedencia')");
+	public function registrar_matricula($nombre,  $appat_hijo, $apmat_hijo, $vacante, $img_dni, $img_certificado, $img_procedencia, $estado){
+		$id_padre = 7;
+		$this->db->query("insert into alumno (nombres, apellidoMat, apellidoPat, id_padre) values ('$nombre', '$appat_hijo', '$apmat_hijo', '$id_padre')");
+
+		$this->db->query("insert into solicitud (foto_dni, vacante, certificado, cole_procedencia, id_estado) values ('$img_dni', '$vacante', '$img_certificado', '$img_procedencia', '$estado')");
 	}
 
 	public function mostrar_matricula($id_matricula){
@@ -39,8 +41,8 @@ class Matricula_modelo{
 		return $array;
 	}
 
-	public function mostrar_matricula_estado($estado){
-		$query = $this->db->query("SELECT * from matricula where estado = '$estado'");
+	public function mostrar_matricula_estado(){
+		$query = $this->db->query("SELECT * from solicitud where id_estado = 1");
 		$array = null;
 		while($fila = mysqli_fetch_assoc($query)){
 			$array[] = $fila;
