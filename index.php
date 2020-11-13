@@ -36,7 +36,7 @@ session_start();
                 </li>
                 <li><a href="Controlador/logout.php">Logout</a></li>
                 <li><?php if(isset($_SESSION['usuario'])){
-                    echo strtolower($_SESSION['usuario']['nombres']);
+                    echo strtolower($_SESSION['usuario']['correo']);
                 } ?></li>
                 
               </ul>

@@ -11,7 +11,7 @@ class Usuario_modelo{
 
     public function verificar_usuario($nombre, $contraseña){
         
-        $query = $this->db->query("SELECT * from padre where nombres ='$nombre' and contraseña = '$contraseña'");//proceso almacenado
+        $query = $this->db->query("SELECT * from usuario where correo ='$nombre' and contraseña = '$contraseña'");//proceso almacenado
 
         while($rows = mysqli_fetch_assoc($query)){
             $usuario = $rows;

@@ -34,46 +34,25 @@
 <div class="container-fluido">
     <section class="ventana">
       <form
-        class="formulario"
-        method="post"
-        action="../Controlador/usuario-control.php">
+        class="formulario" method="post" action="../Controlador/usuario-control.php">
         <legend class="formulario-titulo"><h1>Inicio de sesión</h1></legend>
         <div class="form-group">
-          <label for="uname">Nombre de usuario:</label>
-          <input
-            type="text"
-            class="form-control"
-            id="uname"
-            placeholder="Ingrese nombre de usuario"
-            name="nombre"
-            required
-          />
+          <label for="nombre">Nombre de usuario:</label>          
+          <input type="text"   class="form-control" id="nombre" placeholder="Ingrese nombre de usuario"  name="nombre" autofocus="" required/>
           <div class="valid-feedback">Valido.</div>
           <div class="invalid-feedback">Por favor, rellene este campo.</div>
         </div>
         <div class="form-group">
-          <label for="pwd">Contraseña:</label>
-          <input
-            type="password"
-            class="form-control"
-            id="pwd"
-            placeholder="Ingrese contraseña"
-            name="pswd"
-            required
-          />
+          <label for="contraseña">Contraseña:</label>
+          <input type="password" class="form-control" id="contraseña" placeholder="Ingrese contraseña" name="contraseña"  required/>
           <div class="valid-feedback">Valido.</div>
           <div class="invalid-feedback">Por favor, rellene este campo.</div>
         </div>
-        <button type="button" class="btn btn-warning">Enviar</button>
+        
+        <button type="submit" class="btn btn-warning" name="submit">Enviar</button>
         <p class="registro"><a href="registro.html">Registrate aqui</a></p>
       </form>
-      <form name="frm" action="../Vista/pdf/ProductosReporte.php" method="post">
-        <div class="row" >
-           <div class='col-md-12'>
-           <button type="submit" class="btn btn-warning" action="../ProductosReporte.php">Generar reporte PDF</button><br>
-          </div>      
-        </div>
-       </form>
+
     </section>
 </div>
     <footer></footer>
