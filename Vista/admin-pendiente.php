@@ -18,6 +18,7 @@
         <div class="reportes" id="tablero">
             <table border=1>
                 <tr>
+                    <td>DNI</td>
                     <td>Nombres</td>
                     <td>Apellido materno</td>
                     <td>Apellido paterno</td>
@@ -27,6 +28,7 @@
                         foreach($matricula as $datos):
                     ?>
                 <tr>
+                    <td><?php echo $datos['dni']; ?> </td>
                     <td><?php echo $datos['nombres']; ?></td>
                     <td><?php echo $datos['apellidoMat']; ?></td>
                     <td><?php echo $datos['apellidoPat']; ?></td>

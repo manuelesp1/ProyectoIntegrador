@@ -20,6 +20,7 @@ require_once("../Modelo/matricula_modelo.php");
     
     if($accion == 'registrar-matricula'){
 
+        $dni_hijo = $_POST['dni_hijo'];
         $nombre_hijo = $_POST['nombre_hijo'];
         $appat_hijo = $_POST['appat_hijo'];
         $apmat_hijo = $_POST['apmat_hijo'];
@@ -35,6 +36,7 @@ require_once("../Modelo/matricula_modelo.php");
         $estado = $_POST['estado'];
         $id_padre = $_POST['id_padre'];
 
+        echo $dni_hijo;
         echo $nombre_hijo;
         echo $appat_hijo;
         echo $apmat_hijo;
@@ -43,7 +45,7 @@ require_once("../Modelo/matricula_modelo.php");
         echo $id_padre;
 
         $matricula = new Matricula_modelo();
-        $matricula->registrar_matricula ($nombre_hijo, $appat_hijo, $apmat_hijo, $vacante, $img_dni, $img_certificado, $img_procedencia, $estado, $id_padre, $img_comprobante);
+        $matricula->registrar_matricula ($dni_hijo, $nombre_hijo, $appat_hijo, $apmat_hijo, $vacante, $img_dni, $img_certificado, $img_procedencia, $estado, $id_padre, $img_comprobante);
         header("location: ./../index.php");
     }
 

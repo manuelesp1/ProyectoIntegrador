@@ -16,6 +16,7 @@
     ?>
     <table border=1>
         <tr>
+            <td>DNI</td>
             <td>Nombres</td>
             <td>Apellido paterno</td>
             <td>Apellido materno</td>
@@ -29,6 +30,7 @@
         ?>
 
             <tr>
+                <td><?php echo $datos['dni']; ?> </td>
                 <td><?php echo $datos['nombres']; ?> </td>
                 <td><?php echo $datos['apellidoPat']; ?> </td>
                 <td><?php echo $datos['apellidoMat'] ?> </td>

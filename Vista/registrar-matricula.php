@@ -35,7 +35,10 @@
         <div class="ventana">
             <form class="formulario" method="post" id="formulario" onsubmit="return validar();" action="../Controlador/matricula-control.php" enctype="multipart/form-data">
                 <legend class="formulario-titulo">Registro</legend>                
-                
+                <p class="usuario">
+                    <label for="dni">DNI del hijo: </label>
+                    <input type="text" class="form-control" name="dni_hijo" id="dni_hijo" placeholder="ingrese el dni de su hijo" class="input-texto">
+                </p>
                 <p class="usuario">
                     <label for="nomb">Nombre del hijo: </label>
                     <input type="text" class="form-control" name="nombre_hijo" id="nombre_hijo" placeholder="ingrese su nombre" class="input-texto">
