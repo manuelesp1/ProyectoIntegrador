@@ -1,4 +1,6 @@
-
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,9 +64,14 @@
                     <label for="dni">Colegio de procedencia: </label>
                     <input type="file" class="input-texto" name="procedencia">
                 </p>
+                <p>
+                    <label for="comprobante">Comprobante de pago: </label>
+                    <input type="file" class="input-texto" name="comprobante">
+                </p>
                 <p class="boton_submit">
                     <input type="hidden" name="accion" value="registrar-matricula">
                     <input type="hidden" name="estado" value="1">
+                    <input type="hidden" name="id_padre" value="<?php echo $_SESSION["usuario"]["id_padre"]?>">
                     <input type="submit" name="submit" class="input-submit" >
                 </p>
                 <h6 id="error"></h6>

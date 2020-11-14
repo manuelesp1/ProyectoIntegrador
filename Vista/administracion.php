@@ -27,7 +27,10 @@
             </ul>
         </div>
         <div id="solicitudes">
-            
+            <p>Resumen de solicitudes: </p>
+            <p>Solicitudes pendientes: </p>
+            <p>Soliditudes revisadas: </p>
+            <p>Solicitudes observadas: </p>
         </div>
     </section>
 
@@ -35,6 +38,20 @@
     <script>
         function pendientes() {
             $.post("admin-pendiente.php", {})
+                    .done(function (data) {
+                        $ ('#solicitudes'). html (data);
+//                 console.log (datos);
+                    });
+        }
+        function revisados() {
+            $.post("admin-revisado.php", {})
+                    .done(function (data) {
+                        $ ('#solicitudes'). html (data);
+//                 console.log (datos);
+                    });
+        }
+        function observados() {
+            $.post("admin-observado.php", {})
                     .done(function (data) {
                         $ ('#solicitudes'). html (data);
 //                 console.log (datos);

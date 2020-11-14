@@ -1,14 +1,20 @@
 <?php 
 require_once("../Modelo/matricula_modelo.php");
-session_start();
+
 
 
     class Matricula_control{
-        public function admin_pendiente(){
+        public function revisar_solicitud($id_estado){
 
             $datos = new Matricula_modelo();
-            $matricula = $datos->mostrar_matricula_estado();
+            $matricula = $datos->mostrar_matricula_estado($id_estado);
 
+            return $matricula;
+        }
+        public function mostrar_archivos($id_solicitud){
+
+            $datos = new Matricula_modelo();
+            $matricula = $datos->mostrar_archivos($id_solicitud);
             return $matricula;
         }
     }
@@ -27,39 +33,54 @@ session_start();
         $img_certificado = addslashes(file_get_contents($certificado));
         $procedencia = $_FILES['procedencia']['tmp_name'];
         $img_procedencia = addslashes(file_get_contents($procedencia));
+        $comprobante = $_FILES['comprobante']['tmp_name'];
+        $img_comprobante = addslashes(file_get_contents($comprobante));
         $estado = $_POST['estado'];
+        $id_padre = $_POST['id_padre'];
+
+        echo $nombre_hijo;
+        echo $appat_hijo;
+        echo $apmat_hijo;
+        echo $vacante;
+        echo $estado;
+        echo $id_padre;
 
         $matricula = new Matricula_modelo();
-        $matricula->registrar_matricula ($nombre_hijo, $appat_hijo, $apmat_hijo, $vacante, $img_dni, $img_certificado, $img_procedencia, $estado);
+        $matricula->registrar_matricula ($nombre_hijo, $appat_hijo, $apmat_hijo, $vacante, $img_dni, $img_certificado, $img_procedencia, $estado, $id_padre, $img_comprobante);
         header("location: ./../index.php");
     }
-    }
-//     else if($accion == "cambiar-estado"){
-//         $id_matricula =$_POST['id_matricula'];
-//         $nuevo_estado = $_POST['nuevo-estado'];
-//         $pagina = $_POST['pagina'];
+
+    else if($accion == "cambiar-estado"){
+        $id_solicitud =$_POST['id_solicitud'];
+        $nuevo_estado = $_POST['nuevo-estado'];
+        $pagina = $_POST['pagina'];
         
-//         $matricula = new Matricula_modelo();
-//         $matricula->cambiar_estado($id_matricula, $nuevo_estado);
-//         if($pagina == 'admin-pendiente'){
-//             header("Location: matricula-control.php?accion=mostrar-matricula-estado&estado=pendiente&pagina=admin-pendiente");
-//         }
-//         else if($pagina == 'admin-revisado'){
-//             header("Location: matricula-control.php?accion=mostrar-matricula-estado&estado=revisado&pagina=admin-revisado");
-//         }
-//         else if($pagina == 'admin-observado'){
-//             header("Location: matricula-control.php?accion=mostrar-matricula-estado&estado=observado&pagina=admin-observado");
-//         }
-//         else if($pagina == 'gerencia-pendiente'){
-//             header("Location: matricula-control.php?accion=mostrar-matricula-estado&estado=revisado&pagina=gerencia-pendiente");
-//         }
-//         else if($pagina == 'gerencia-aprobado'){
-//             header("Location: matricula-control.php?accion=mostrar-matricula-estado&estado=aprobado&pagina=gerencia-aprobado");
-//         }
-//         else if($pagina == 'gerencia-rechazado'){
-//             header("Location: matricula-control.php?accion=mostrar-matricula-estado&estado=rechazado&pagina=gerencia-rechazado");
-//         }
-//     }
+        $matricula = new Matricula_modelo();
+        $matricula->cambiar_estado($id_solicitud, $nuevo_estado);
+        if($pagina == 'admin-pendiente'){
+            header("Location: ./../Vista/administracion.php");
+        }
+        else if($pagina == 'admin-revisado'){
+            header("Location: ./../Vista/administracion.php");
+        }
+        else if($pagina == 'admin-observado'){
+            header("Location: ./../Vista/administracion.php");
+        }
+        else if($pagina == 'gerencia-pendiente'){
+            header("Location: matricula-control.php?accion=mostrar-matricula-estado&estado=revisado&pagina=gerencia-pendiente");
+        }
+        else if($pagina == 'gerencia-aprobado'){
+            header("Location: matricula-control.php?accion=mostrar-matricula-estado&estado=aprobado&pagina=gerencia-aprobado");
+        }
+        else if($pagina == 'gerencia-rechazado'){
+            header("Location: matricula-control.php?accion=mostrar-matricula-estado&estado=rechazado&pagina=gerencia-rechazado");
+        }
+        else if($pagina == 'administracion'){
+            header("location: ./../Vista/administracion.php");
+        }
+    }
+}
+    
 //     else if($accion == "mostrar-matricula"){
 //         $id_matricula = $_POST['id_matricula'];
 //         $datos = new Matricula_modelo();

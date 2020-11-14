@@ -81,22 +81,7 @@ CREATE TABLE `padre` (
 -- Volcado de datos para la tabla `padre`
 --
 
-INSERT INTO `padre` (`id_padre`, `nombres`, `apellidoM`, `apellidoP`, `telefono`, `direccion`, `dni`, `id_usuario`, `id_rol`) VALUES
-(1, 'romo', 're', 're', 5645, 'dfg', 546546, 2, 1);
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pago`
---
-
-CREATE TABLE `pago` (
-  `id_pago` int(10) NOT NULL,
-  `monto` double NOT NULL,
-  `fecha` varchar(10) NOT NULL,
-  `id_padre` int(10) NOT NULL,
-  `id_solicitud` int(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -121,6 +106,28 @@ INSERT INTO `roles` (`id_rol`, `descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `estado_revision`
+--
+
+CREATE TABLE `estado_revision` (
+  `id_estado` int(10) NOT NULL,
+  `descripcion` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `estado_revision`
+--
+
+INSERT INTO `estado_revision` (`id_estado`, `descripcion`) VALUES
+(1, 'pendiente'),
+(2, 'revisado'),
+(3, 'observado'),
+(4, 'aceptado'),
+(5, 'rechazado');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `solicitud`
 --
 
@@ -128,9 +135,12 @@ CREATE TABLE `solicitud` (
   `id_solicitud` int(20) NOT NULL,
   `foto_dni` mediumblob NOT NULL,
   `vacante` int(5) NOT NULL,
+  `comprobante` mediumblob NOT NULL,
   `certificado` mediumblob NOT NULL,
   `cole_procedencia` mediumblob NOT NULL,
-  `id_trabajador` int(10) NOT NULL
+  `id_estado` int(10) NOT NULL,
+  `id_trabajador` int(10) NOT NULL,
+  `id_padre` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -149,13 +159,8 @@ CREATE TABLE `trabajador` (
   `id_usuario` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `trabajador`
---
 
-INSERT INTO `trabajador` (`id_trabajador`, `nombres`, `apellidoPa`, `apellidoMa`, `telefono`, `id_rol`, `id_usuario`) VALUES
-(1, 'juan', 'l', 'm', 654654645, 2, 1),
-(2, 'jo', 'h', 'f', 435435, 3, 2);
+
 
 -- --------------------------------------------------------
 
@@ -173,11 +178,6 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `correo`, `contraseña`) VALUES
-(1, 'leo@leo.com', '123'),
-(2, 'ni@ni.com', '123'),
-(3, 'hol@hol.com', '123'),
-(4, 'kin@kin.com', '123');
 
 --
 -- Índices para tablas volcadas
@@ -199,6 +199,12 @@ ALTER TABLE `estado`
   ADD PRIMARY KEY (`id_estado`);
 
 --
+-- Indices de la tabla `estado_revision`
+--
+ALTER TABLE `estado_revision`
+  ADD PRIMARY KEY (`id_estado`);
+
+--
 -- Indices de la tabla `grado`
 --
 ALTER TABLE `grado`
@@ -212,13 +218,6 @@ ALTER TABLE `padre`
   ADD KEY `id_usuario` (`id_usuario`),
   ADD KEY `id_rol` (`id_rol`);
 
---
--- Indices de la tabla `pago`
---
-ALTER TABLE `pago`
-  ADD PRIMARY KEY (`id_pago`),
-  ADD KEY `id_padre` (`id_padre`),
-  ADD KEY `id_solicitud` (`id_solicitud`);
 
 --
 -- Indices de la tabla `roles`
@@ -231,8 +230,9 @@ ALTER TABLE `roles`
 --
 ALTER TABLE `solicitud`
   ADD PRIMARY KEY (`id_solicitud`),
-  ADD KEY `id_trabajador` (`id_trabajador`);
-
+  ADD KEY `id_trabajador` (`id_trabajador`),
+  ADD KEY `id_padre` (`id_padre`),
+  ADD KEY `id_estado` (`id_estado`);
 --
 -- Indices de la tabla `trabajador`
 --
@@ -275,11 +275,6 @@ ALTER TABLE `grado`
 ALTER TABLE `padre`
   MODIFY `id_padre` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- AUTO_INCREMENT de la tabla `pago`
---
-ALTER TABLE `pago`
-  MODIFY `id_pago` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -324,18 +319,13 @@ ALTER TABLE `padre`
   ADD CONSTRAINT `padre_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
   ADD CONSTRAINT `padre_ibfk_2` FOREIGN KEY (`id_rol`) REFERENCES `roles` (`id_rol`);
 
---
--- Filtros para la tabla `pago`
---
-ALTER TABLE `pago`
-  ADD CONSTRAINT `pago_ibfk_1` FOREIGN KEY (`id_solicitud`) REFERENCES `solicitud` (`id_solicitud`),
-  ADD CONSTRAINT `pago_ibfk_2` FOREIGN KEY (`id_padre`) REFERENCES `padre` (`id_padre`);
 
 --
 -- Filtros para la tabla `solicitud`
 --
 ALTER TABLE `solicitud`
-  ADD CONSTRAINT `solicitud_ibfk_1` FOREIGN KEY (`id_trabajador`) REFERENCES `trabajador` (`id_trabajador`);
+  ADD CONSTRAINT `solicitud_ibfk_1` FOREIGN KEY (`id_trabajador`) REFERENCES `trabajador` (`id_trabajador`),
+  ADD CONSTRAINT `solicitud_ibfk_2` FOREIGN KEY (`id_estado`) REFERENCES `estado_revision` (`id_estado`);
 
 --
 -- Filtros para la tabla `trabajador`

@@ -1,6 +1,7 @@
 <?php
+    $id_estado = 2;
     require_once("../Controlador/matricula-control.php");
-    $matricula = Matricula_control::admin_revisado();
+    $matricula = Matricula_control::revisar_solicitud($id_estado);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -9,54 +10,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/admin.css">
+    <script  type = "text/javascript"  src = "js/jquery.js" > </script>
     <title>Document</title>
 </head>
 
 <body>
-    
-        <div class="reportes">
+    <h4>Solicitudes revisadas</h4>
+<div class="reportes" id="tablero">
             <table border=1>
                 <tr>
-                    <td>ID</td>
-                    <td>DNI del padre</td>
-                    <td>DNI del hijo</td>
-                    <td>Nombre del hijo</td>
-                    <td>Apellido paterno del hijo</td>
-                    <td>Apellido materno del hijo</td>
-                    <td>Documentos</td>
+                    <td>Nombres</td>
+                    <td>Apellido materno</td>
+                    <td>Apellido paterno</td>
                     <td></td>
                 </tr>
-                <?php
-                        if(isset($_SESSION['mostrar-matricula-estado'])):
-                             foreach($_SESSION['mostrar-matricula-estado'] as $datos):
+                     <?php
+                        foreach($matricula as $datos):
                     ?>
                 <tr>
-                    <td><?php echo $datos['id_matricula']; ?></td>
-                    <td><?php echo $datos['dni_padre']; ?></td>
-                    <td><?php echo $datos['dni_hijo']; ?></td>
-                    <td><?php echo $datos['nombre_hijo']; ?></td>
-                    <td><?php echo $datos['appat_hijo']; ?></td>
-                    <td><?php echo $datos['apmat_hijo']; ?></td>
-                    <td><a href="../Controlador/matricula-control.php?id=<?php echo $datos['id_matricula']; ?>&accion=mostrar-matricula&tipo=administracion">Revisar documentos</a></td>
-                    <td>
-                        <form action="../Controlador/matricula-control.php" method="post">
-                            <input type="hidden" name="id_matricula" value="<?php echo $datos['id_matricula'] ?>">
-                            <input type="hidden" name="nuevo-estado" value="pendiente">
-                            <input type="hidden" name="accion" value="cambiar-estado">
-                            <input type="hidden" name="pagina" value="admin-revisado">
-                            <input type="submit" name="submit" value="Pendiente">
-                        </form>
-                    </td>
+                    <td><?php echo $datos['nombres']; ?></td>
+                    <td><?php echo $datos['apellidoMat']; ?></td>
+                    <td><?php echo $datos['apellidoPat']; ?></td>
 
-                </tr>
-                <?php
+                    <td><a href="#" onclick="revisar_documentos(<?php echo $datos['id_solicitud']; ?>)">Revisar documentos</a></td>
+                    </tr>
+                    <?php
                              endforeach;
-                            endif;
+                            
                     ?>
             </table>
         </div>
-    </section>
-
 </body>
 
 </html>

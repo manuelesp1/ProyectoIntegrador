@@ -1,7 +1,7 @@
 <?php
-
+    $id_estado = 1;
     require_once("../Controlador/matricula-control.php");
-    $matricula = Matricula_control::admin_pendiente();
+    $matricula = Matricula_control::revisar_solicitud($id_estado);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -10,35 +10,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/admin.css">
+    <script  type = "text/javascript"  src = "js/jquery.js" > </script>
     <title>Document</title>
 </head>
 
 <body>
-    
-        <div class="reportes">
+        <h4>Solicitudes pendientes</h4>
+        <div class="reportes" id="tablero">
             <table border=1>
                 <tr>
-                    <td>ID solicitud</td>
-                    <td>Vacante</td>
+                    <td>Nombres</td>
+                    <td>Apellido materno</td>
+                    <td>Apellido paterno</td>
                     <td></td>
                 </tr>
                      <?php
                         foreach($matricula as $datos):
                     ?>
                 <tr>
-                    <td><?php echo $datos['id_solicitud']; ?></td>
-                    <td><?php echo $datos['vacante']; ?></td>
+                    <td><?php echo $datos['nombres']; ?></td>
+                    <td><?php echo $datos['apellidoMat']; ?></td>
+                    <td><?php echo $datos['apellidoPat']; ?></td>
 
-                    <td><a href="../Controlador/matricula-control.php?id=<?php echo $datos['id_matricula']; ?>&accion=mostrar-matricula&tipo=administracion">Revisar documentos</a></td>
+                    <td><a href="#" onclick="revisar_documentos(<?php echo $datos['id_solicitud']; ?>)">Revisar documentos</a></td>
                     </tr>
                     <?php
                              endforeach;
                             
                     ?>
+                
             </table>
         </div>
-    </section>
 
 </body>
-
+<script>
+        function revisar_documentos(val) {
+            $.post("revisar-archivos.php", {val:val})
+                    .done(function (data) {
+                        $ ('#tablero'). html (data);
+//                 console.log (datos);
+                    });
+        }
+    </script>
 </html>
