@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/login.css">
     <title>Document</title>
 </head>
 <body>
+
     <section class="ventana">
 		<form class="formulario" method="post" action="../Controlador/personal-control.php">
 			<legend class="formulario-titulo">Registro</legend>
@@ -27,7 +27,10 @@
 				<label for="correo">Correo: </label>
 				<input type="email" name="correo" class="input-texto">
 			</p>
-
+			<p>
+				<label for="telefono">Teléfono: </label>
+				<input type="tel" name="telef" placeholder="ingrese su telefono" class="input-texto">
+			</p>
 			<p>
 				<label for="Contraseña">Contraseña: </label>
 				<input type="password" name="contraseña" placeholder="ingrese su contraseña" class="input-texto">
@@ -37,8 +40,8 @@
                 <label for="tipo">Elija rol: </label>
                 <select name="tipo" id="tipo">
                     <option value="">Seleccione</option>
-                    <option value="administracion">administracion</option>
-                    <option value="gerencia">Gerencia</option>
+                    <option value="2">administracion</option>
+                    <option value="3">Gerencia</option>
                 </select>
 			</p>
 			<p>
