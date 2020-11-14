@@ -57,8 +57,6 @@ class Matricula_modelo{
 		}
 		return $array;
 	}
-	
-	
 }
 
 ?>

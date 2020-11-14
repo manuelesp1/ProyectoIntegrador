@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="css/admin.css">
     <title>Document</title>
 </head>
-
 <body>
 <h4>Solicitudes pendientes</h4>
         <div class="reportes" id="tablero">

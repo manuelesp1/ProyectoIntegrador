@@ -34,8 +34,7 @@
                     <td><a href="#" onclick="revisar_documentos(<?php echo $datos['id_solicitud']; ?>)">Revisar documentos</a></td>
                     </tr>
                     <?php
-                             endforeach;
-                            
+                             endforeach;         
                     ?>
                 
             </table>

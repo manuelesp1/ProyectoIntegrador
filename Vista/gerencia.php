@@ -31,7 +31,6 @@
             <p>Solicitudes observadas: </p>
         </div>
     </section>
-
 </body>
     <script>
         function pendientes() {

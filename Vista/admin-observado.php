@@ -13,7 +13,6 @@
     <script  type = "text/javascript"  src = "js/jquery.js" > </script>
     <title>Document</title>
 </head>
-
 <body>
     <h4>Solicitudes observadas</h4>
 <div class="reportes" id="tablero">

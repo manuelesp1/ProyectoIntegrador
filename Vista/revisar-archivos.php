@@ -60,7 +60,6 @@
                     </form>
                 </td>
             </tr>
-
         </table>
         <img src="data:image/jpg;base64,<?php echo base64_encode($datos['foto_dni']); ?>">
         <img src="data:image/jpg;base64,<?php echo base64_encode($datos['comprobante']); ?>">

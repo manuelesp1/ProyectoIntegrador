@@ -15,7 +15,6 @@
 
 <body>
     <section class="banner">
-        
     </section>
     <section class="principal">
         

@@ -1,8 +1,5 @@
 <?php 
 require_once("../Modelo/matricula_modelo.php");
-
-
-
     class Matricula_control{
         public function revisar_solicitud($id_estado){
 

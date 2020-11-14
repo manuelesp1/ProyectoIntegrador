@@ -52,7 +52,6 @@
                 </select>
 			</p>
 			<p>
-				
                 <input type="hidden" name="accion" value="editar_datos">
                 <input type="hidden" name="id_trabajador" value="<?php echo $datos['id_trabajador'] ?>">
 			</p>
