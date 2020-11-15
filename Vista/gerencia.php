@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css" />
     <script  type = "text/javascript"  src = "js/jquery.js" > </script>
     <link rel="stylesheet" href="css/admin.css">
     <title>Document</title>
@@ -14,7 +15,7 @@
     <section class="principal">
         <div class="menu">
             <ul>
-                <a href="#"><li>Reporte</li></a>
+                <a href="#"><a align="center"><img src="img/escudo-laLetona-b.png" alt="" width="20%" height="20%" ></a><li>Reporte</li></a>
                 <a onclick=pendientes()><li>Solicitudes pendientes</li></a>
                 <a onclick=aprobados()><li>Solicitudes aprobadas</li></a>
                 <a onclick=rechazados()><li>Solicitudes rechazadas</li></a>

@@ -11,15 +11,15 @@
 /* ---------banner--------- */
 .banner{
     height: 50px;
-    background-color: #4141c6;
-    color: #FFA500;
+    background-color: #fbbf1b;
+    color: #631a1e;
 }
 
 /*--------- menu--------- */
 .menu{
-    width: 165px;
-    height: 254px;
-    background-color: #25256f;
+    width: 290px;
+    height: 420px;
+    background-color: #631a1e;
     color: white;
 }
 .menu ul{
