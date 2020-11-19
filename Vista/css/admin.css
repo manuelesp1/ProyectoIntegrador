@@ -42,6 +42,10 @@
 }
 
 /* --------reportes-------- */
+.solicitudes{
+    margin: 0 auto;
+    width: 700px;
+}
 .reportes{
     width: 100%;
 }
@@ -62,4 +66,13 @@ td{
 .imagen img{
     max-width: 90%;
     margin: 0 auto;
+}
+.documentos{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.documentos img{
+    max-width: 500px;
+    margin: 2em 0;
 }

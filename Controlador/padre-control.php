@@ -2,9 +2,9 @@
 require_once("../Modelo/padre_modelo.php");
 
 class Padre_control{
-    public function mostrar_padre($id_padre){
+    public function mostrar_padre($id_usuario){ 
         $datos = new Padre_modelo();
-        $padre = $datos->mostrar_padre($id_padre);
+        $padre = $datos->mostrar_padre($id_usuario);
         return $padre;
     }
 }

@@ -1,5 +1,12 @@
 <?php
     session_start();
+    $id_rol = $_SESSION['usuario']['id_rol'];
+    if($id_rol == 1){
+        header("location: ./../index.php");
+    }
+    else if($id_rol == 3){
+        header("location: ./gerencia.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -16,7 +23,7 @@
 <body>
     <section class="banner">
     
-        <p>Bienvenido, <?php echo $_SESSION['nombre'] ?></p>
+        <!-- <p>Bienvenido, <?php echo strtolower($_SESSION['usuario']['nombres']); ?></p> -->
         
     </section>
     <section class="principal">

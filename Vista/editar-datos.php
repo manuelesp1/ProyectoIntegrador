@@ -1,4 +1,14 @@
 <?php
+    session_start();
+    $id_rol = $_SESSION['usuario']['id_rol'];
+    if($id_rol == 1){
+        header("location: ./../index.php");
+    }
+    else if($id_rol == 2){
+        header("location: ./administracion.php");
+    }
+?>
+<?php
     $id_trabajador = $_POST['val'];
     require_once("../Controlador/personal-control.php");
     $trabajador = Personal_control::datos_personal($id_trabajador);

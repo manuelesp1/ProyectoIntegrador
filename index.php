@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -26,65 +29,33 @@ session_start();
             <div class="collapse navbar-collapse" id="navbarText">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="../Vista/nosotros.html">Nosotros</a>
+                  <a class="nav-link" href="Vista/nosotros.html">Nosotros</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../index.html">Contactos</a>
+                  <a class="nav-link" href="#">Contactos</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../index.html">Login</a>
-                </li>
-                <li><a href="Controlador/logout.php">Logout</a></li>
-                <li><?php if(isset($_SESSION['usuario'])){
-                    echo strtolower($_SESSION['usuario']['correo']);
-                } ?></li>
                 
+                <?php if(isset($_SESSION['usuario'])){
+                ?>
+                    <!-- <li class="saludo">Bienvenido, <?php echo strtolower($_SESSION['datos_padre']['id_padre']); ?></li> -->
+                    <li class="nav-item"><a class="nav-link" href="Controlador/logout.php">Logout</a></li>
+                <?php
+                }else{
+                ?>
+                    <li class="nav-item">
+                    <a class="nav-link" href="Vista/login.html">Login</a>
+                </li>
+                <?php
+                }
+          
+                ?>
               </ul>
               <img src="Vista/img/escudo-laLetona-n.png" alt="" width="2.5%" height="2.5%"><span class="navbar-text">  Colegio La leona</span>
             </div>
           </nav>
 
     <header class="banner">
-        <nav class="menu">
-            <!-- <div class="slider">
-                <p><img src="Vista/img/slider1.jpg" alt=""></p>
-                <p><img src="Vista/img/slider2.jpg" alt=""></p>
-                <p><img src="Vista/img/slider3.jpg" alt=""></p>
-            </div> -->
-            <ul>
-
-                <li><a href="index.php">Inicio</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Contactos</a></li>
-                <?php 
-					if(isset($_SESSION['nombre'])){
-                ?>
-                <li><a href="Controlador/logout.php">Logout</a></li>
-                <li>Bienvenido, <?php echo $_SESSION['nombre']; ?></li>
-                <?php				
-					}
-					else{
-				 ?>
-                <li><a href="Vista/login.html">Login</a></li>
-                <?php 
-				 	}
-				  ?>
-                <!-- <li><a href="vista/login.html">Login</a></li> -->
-                <?php
-                if (isset($_SESSION['nombre'])) {
-                ?>
-                    <li><a href="Controlador/logout.php"><?php echo $_SESSION['nombre']; ?></a></li>
-                <?php
-                } else {
-                ?>
-                    <li><a href="Vista/login.html">Login</a></li>
-                <?php
-                }
-                ?>
-
-            </ul>
-
-        </nav>
+        
 
         <div class="ola" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
                 style="height: 100%; width: 100%;">
@@ -99,7 +70,7 @@ session_start();
         </a> 
 
         <div class="ola" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
-                <path d="M-67.43,95.22 C225.45,180.09 312.36,58.70 501.41,134.70 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
+                <path d="M-67.43,95.22 C225.45,180.09 312.36,58.70 501.41,134.70 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #f2f2f2;"></path>
             </svg></div>
 
     </header>

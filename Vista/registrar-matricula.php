@@ -1,5 +1,11 @@
 <?php
     session_start();
+    require_once("../Controlador/padre-control.php");
+    $id_usuario = $_SESSION['usuario']['id_usuario'];
+    $datos_padre = Padre_control::mostrar_padre($id_usuario);
+    foreach($datos_padre as $datos):
+        $id_padre = $datos['id_padre'];
+    endforeach;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,7 +80,7 @@
                 <p class="boton_submit">
                     <input type="hidden" name="accion" value="registrar-matricula">
                     <input type="hidden" name="estado" value="1">
-                    <input type="hidden" name="id_padre" value="<?php echo $_SESSION["usuario"]["id_padre"]?>">
+                    <input type="hidden" name="id_padre" value="<?php echo $id_padre?>">
                     <input type="submit" name="submit" class="input-submit" >
                 </p>
                 <h6 id="error"></h6>

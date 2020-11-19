@@ -1,4 +1,14 @@
 <?php
+    session_start();
+    $id_rol = $_SESSION['usuario']['id_rol'];
+    if($id_rol == 1){
+        header("location: ./../index.php");
+    }
+    else if($id_rol == 2){
+        header("location: ./administracion.php");
+    }
+?>
+<?php
     $id_estado = 4;
     require_once("../Controlador/matricula-control.php");
     $matricula = Matricula_control::revisar_solicitud($id_estado);
@@ -18,6 +28,7 @@
         <div class="reportes" id="tablero">
             <table border=1>
                 <tr>
+                    <td>DNI</td>
                     <td>Nombres</td>
                     <td>Apellido materno</td>
                     <td>Apellido paterno</td>
@@ -27,6 +38,7 @@
                         foreach($matricula as $datos):
                     ?>
                 <tr>
+                    <td><?php echo $datos['dni']; ?></td>
                     <td><?php echo $datos['nombres']; ?></td>
                     <td><?php echo $datos['apellidoMat']; ?></td>
                     <td><?php echo $datos['apellidoPat']; ?></td>

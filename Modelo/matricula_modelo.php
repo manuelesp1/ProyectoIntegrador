@@ -12,14 +12,17 @@ class Matricula_modelo{
 	}
 
 	public function registrar_matricula($dni_hijo, $nombre,  $appat_hijo, $apmat_hijo, $vacante, $img_dni, $img_certificado, $img_procedencia, $estado, $id_padre, $img_comprobante){
-		$this->db->query("insert into alumno (dni, nombres, apellidoMat, apellidoPat, id_padre) values ('$dni_hijo', '$nombre', '$appat_hijo', '$apmat_hijo', '$id_padre')");
+		$this->db->query("CALL registrar_matricula1('$dni_hijo', '$nombre', '$apmat_hijo', '$appat_hijo', '$id_padre')");
+		$this->db->query("CALL registrar_matricula2('$img_dni', '$vacante', '$img_comprobante', '$img_certificado', '$img_procedencia', '$estado', '$id_padre')");
+		//$this->db->query("insert into alumno (dni, nombres, apellidoMat, apellidoPat, id_padre) values ('$dni_hijo', '$nombre', '$appat_hijo', '$apmat_hijo', '$id_padre')");
 
-		$this->db->query("insert into solicitud (foto_dni, vacante, comprobante, certificado, cole_procedencia, id_estado, id_padre) values ('$img_dni', '$vacante', '$img_comprobante', '$img_certificado', '$img_procedencia', '$estado', '$id_padre')");
+		//$this->db->query("insert into solicitud (foto_dni, vacante, comprobante, certificado, cole_procedencia, id_estado, id_padre, id_alumno) values ('$img_dni', '$vacante', '$img_comprobante', '$img_certificado', '$img_procedencia', '$estado', '$id_padre', (select max(id_alumno) from alumno))");
 	}
 
 	public function mostrar_archivos($id_solicitud){
-		$query = $this->db->query("SELECT t1.foto_dni, t1.comprobante, t1.certificado, t1.cole_procedencia, t3.dni, t3.nombres, t3.apellidoMat, t3.apellidoPat from solicitud t1 inner join padre t2 on t1.id_padre = t2.id_padre inner join alumno t3 on t2.id_padre = t3.id_padre where t1.id_solicitud = $id_solicitud");//proceso almacenado
-		$array = null;
+		$query = $this->db->query("CALL mostrar_archivos($id_solicitud)");
+		 //$query = $this->db->query("SELECT t1.foto_dni, t1.comprobante, t1.certificado, t1.cole_procedencia, t2.dni, t2.nombres, t2.apellidoMat, t2.apellidoPat from solicitud t1 inner join alumno t2 on t1.id_alumno = t2.id_alumno where t1.id_solicitud = $id_solicitud");//proceso almacenado
+		 $array = null;
 		while ($fila = mysqli_fetch_assoc($query)){
 			$array[] = $fila;
 		}
@@ -30,18 +33,19 @@ class Matricula_modelo{
 		$query = $this->db->query("UPDATE solicitud set id_estado = '$nuevo_estado' where id_solicitud = '$id_solicitud'");
 	}
 
-	public function mostrar_todo(){
-		$query = $this->db->query("SELECT * from matricula");
-		// $result = $this->db->query($query);  esta linea me ocasiona un error y no muestra datos de la bd
-		$array = null;
-		while($fila = mysqli_fetch_assoc($query)){
-			$array[] = $fila;
-		}
-		return $array;
-	}
+	// public function mostrar_todo(){
+	// 	$query = $this->db->query("SELECT * from matricula");
+	// 	// $result = $this->db->query($query);  esta linea me ocasiona un error y no muestra datos de la bd
+	// 	$array = null;
+	// 	while($fila = mysqli_fetch_assoc($query)){
+	// 		$array[] = $fila;
+	// 	}
+	// 	return $array;
+	// }
 
 	public function mostrar_matricula_estado($id_estado){
-		$query = $this->db->query("SELECT t1.id_alumno, t1.dni, t1.nombres, t1.apellidoMat, t1.apellidoPat, t3.id_solicitud from alumno t1 inner join padre t2 on t1.id_padre = t2.id_padre inner join solicitud t3 on t2.id_padre = t3.id_padre where t3.id_estado = $id_estado");
+		//$query = $this->db->query("SELECT t1.id_alumno, t1.dni, t1.nombres, t1.apellidoMat, t1.apellidoPat, t3.id_solicitud from alumno t1 inner join padre t2 on t1.id_padre = t2.id_padre inner join solicitud t3 on t2.id_padre = t3.id_padre where t3.id_estado = $id_estado");
+		$query = $this->db->query("CALL mostrar_matricula_estado($id_estado)");
 		$array = null;
 		while($fila = mysqli_fetch_assoc($query)){
 			$array[] = $fila;
@@ -49,14 +53,14 @@ class Matricula_modelo{
 		return $array;
 	}
 
-	public function mostrar_pendientes(){
-		$query = $this->db->query("SELECT * from solicitud where id_estado = 1");
-		$array = null;
-		while($fila = mysqli_fetch_assoc($query)){
-			$array[] = $fila;
-		}
-		return $array;
-	}
+	// public function mostrar_pendientes(){
+	// 	$query = $this->db->query("SELECT * from solicitud where id_estado = 1");
+	// 	$array = null;
+	// 	while($fila = mysqli_fetch_assoc($query)){
+	// 		$array[] = $fila;
+	// 	}
+	// 	return $array;
+	// }
 }
 
 ?>

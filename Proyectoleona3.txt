@@ -29,12 +29,13 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `alumno` (
   `id_alumno` int(10) NOT NULL,
+  `dni` int(10) NOT NULL,
   `nombres` varchar(20) NOT NULL,
   `apellidoMat` varchar(15) NOT NULL,
   `apellidoPat` varchar(15) NOT NULL,
   `id_padre` int(10) NOT NULL,
-  `id_grado` int(10) NOT NULL,
-  `id_estado` int(10) NOT NULL
+  `id_grado` int(10),
+  `id_estado` int(10)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -73,8 +74,7 @@ CREATE TABLE `padre` (
   `telefono` int(15) NOT NULL,
   `direccion` varchar(30) NOT NULL,
   `dni` int(10) NOT NULL,
-  `id_usuario` int(10) NOT NULL,
-  `id_rol` int(10) NOT NULL
+  `id_usuario` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -139,8 +139,9 @@ CREATE TABLE `solicitud` (
   `certificado` mediumblob NOT NULL,
   `cole_procedencia` mediumblob NOT NULL,
   `id_estado` int(10) NOT NULL,
-  `id_trabajador` int(10) NOT NULL,
-  `id_padre` int(10) NOT NULL
+  `id_trabajador` int(10),
+  `id_padre` int(10) NOT NULL,
+  `id_alumno` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -155,7 +156,6 @@ CREATE TABLE `trabajador` (
   `apellidoPa` varchar(15) NOT NULL,
   `apellidoMa` varchar(15) NOT NULL,
   `telefono` int(10) NOT NULL,
-  `id_rol` int(10) NOT NULL,
   `id_usuario` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -171,7 +171,8 @@ CREATE TABLE `trabajador` (
 CREATE TABLE `usuario` (
   `id_usuario` int(10) NOT NULL,
   `correo` varchar(30) NOT NULL,
-  `contraseña` varchar(15) NOT NULL
+  `contraseña` varchar(15) NOT NULL,
+  `id_rol` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -215,8 +216,7 @@ ALTER TABLE `grado`
 --
 ALTER TABLE `padre`
   ADD PRIMARY KEY (`id_padre`),
-  ADD KEY `id_usuario` (`id_usuario`),
-  ADD KEY `id_rol` (`id_rol`);
+  ADD KEY `id_usuario` (`id_usuario`);
 
 
 --
@@ -232,20 +232,21 @@ ALTER TABLE `solicitud`
   ADD PRIMARY KEY (`id_solicitud`),
   ADD KEY `id_trabajador` (`id_trabajador`),
   ADD KEY `id_padre` (`id_padre`),
-  ADD KEY `id_estado` (`id_estado`);
+  ADD KEY `id_estado` (`id_estado`),
+  ADD KEY `id_alumno` (`id_alumno`);
 --
 -- Indices de la tabla `trabajador`
 --
 ALTER TABLE `trabajador`
   ADD PRIMARY KEY (`id_trabajador`),
-  ADD KEY `id_usuario` (`id_usuario`),
-  ADD KEY `id_rol` (`id_rol`);
+  ADD KEY `id_usuario` (`id_usuario`);
 
 --
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id_usuario`);
+  ADD PRIMARY KEY (`id_usuario`),
+  ADD KEY `id_rol` (`id_rol`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -263,11 +264,6 @@ ALTER TABLE `alumno`
 ALTER TABLE `estado`
   MODIFY `id_estado` int(10) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT de la tabla `grado`
---
-ALTER TABLE `grado`
-  MODIFY `id_grado` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `padre`
@@ -298,8 +294,8 @@ ALTER TABLE `trabajador`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `id_usuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5,
+  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`id_rol`) REFERENCES `roles` (`id_rol`);
 --
 -- Restricciones para tablas volcadas
 --
@@ -316,8 +312,8 @@ ALTER TABLE `alumno`
 -- Filtros para la tabla `padre`
 --
 ALTER TABLE `padre`
-  ADD CONSTRAINT `padre_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
-  ADD CONSTRAINT `padre_ibfk_2` FOREIGN KEY (`id_rol`) REFERENCES `roles` (`id_rol`);
+  ADD CONSTRAINT `padre_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
+  
 
 
 --
@@ -325,15 +321,13 @@ ALTER TABLE `padre`
 --
 ALTER TABLE `solicitud`
   ADD CONSTRAINT `solicitud_ibfk_1` FOREIGN KEY (`id_trabajador`) REFERENCES `trabajador` (`id_trabajador`),
-  ADD CONSTRAINT `solicitud_ibfk_2` FOREIGN KEY (`id_estado`) REFERENCES `estado_revision` (`id_estado`);
-
+  ADD CONSTRAINT `solicitud_ibfk_2` FOREIGN KEY (`id_estado`) REFERENCES `estado_revision` (`id_estado`),
+  ADD CONSTRAINT `solicitud_ibfk_3` FOREIGN KEY (`id_alumno`) REFERENCES `alumno` (`id_alumno`);
 --
 -- Filtros para la tabla `trabajador`
 --
 ALTER TABLE `trabajador`
-  ADD CONSTRAINT `trabajador_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
-  ADD CONSTRAINT `trabajador_ibfk_2` FOREIGN KEY (`id_rol`) REFERENCES `roles` (`id_rol`);
-COMMIT;
+  ADD CONSTRAINT `trabajador_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

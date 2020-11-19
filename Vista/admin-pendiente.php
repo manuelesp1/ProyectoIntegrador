@@ -1,4 +1,12 @@
 <?php
+    session_start();
+    $id_rol = $_SESSION['usuario']['id_rol'];
+    if($id_rol == 1){
+        header("location: ./../index.php");
+    }
+    else if($id_rol == 3){
+        header("location: ./gerencia.php");
+    }
     $id_estado = 1;
     require_once("../Controlador/matricula-control.php");
     $matricula = Matricula_control::revisar_solicitud($id_estado);

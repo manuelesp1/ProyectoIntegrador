@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/admin.css">
     <title>Archivos</title>
 </head>
 
@@ -14,6 +15,7 @@
         include("../Controlador/matricula-control.php");
         $archivos = Matricula_control::mostrar_archivos($id_solicitud);
     ?>
+    <section class="tablero-archivos">
     <table border=1>
         <tr>
             <td>DNI</td>
@@ -63,15 +65,20 @@
                 </td>
             </tr>
         </table>
-        <img src="data:image/jpg;base64,<?php echo base64_encode($datos['foto_dni']); ?>">
-        <img src="data:image/jpg;base64,<?php echo base64_encode($datos['comprobante']); ?>">
-        <img src="data:image/jpg;base64,<?php echo base64_encode($datos['certificado']); ?>">
-        <img src="data:image/jpg;base64,<?php echo base64_encode($datos['cole_procedencia']); ?>">
+        
+
+        <div class="documentos">
+            <img src="data:image/jpg;base64,<?php echo base64_encode($datos['foto_dni']); ?>">
+            <img src="data:image/jpg;base64,<?php echo base64_encode($datos['comprobante']); ?>">
+            <img src="data:image/jpg;base64,<?php echo base64_encode($datos['certificado']); ?>">
+            <img src="data:image/jpg;base64,<?php echo base64_encode($datos['cole_procedencia']); ?>">
+        </div>
+        
         <?php
  
         endforeach;
     ?>
-
+        </section>
 </body>
 
 </html>
